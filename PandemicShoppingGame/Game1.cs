@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 
 namespace PandemicShoppingGame
 {
@@ -17,6 +19,7 @@ namespace PandemicShoppingGame
         private SpriteFont font;
 
         private Player player;
+        private LevelObject cashier;
 
         private Texture2D textureShopList;
         private Texture2D textureBag;
@@ -27,16 +30,17 @@ namespace PandemicShoppingGame
         List<Product> shoppingList = new List<Product>();
         List<Product> productList = new List<Product>();
         List<Enemy> enemies = new List<Enemy>();
-        LevelObject cashier = new LevelObject(200, 300,null);
         public int score = 0;
+        public string level;
 
 
-        public Game1()
+        public Game1(string level)
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = true;
             graphics.HardwareModeSwitch = false;
             Content.RootDirectory = "Content";
+            this.level = level;
             
         }
 
@@ -50,76 +54,39 @@ namespace PandemicShoppingGame
         {
             font = Content.Load<SpriteFont>("newFont");
             // TODO: Add your initialization logic here
-            //Load objects
+            //Load Textures
             textureBag = Content.Load<Texture2D>("bag");
             textureShopList = Content.Load<Texture2D>("shoplist");
             var textureShelf = Content.Load<Texture2D>("shelf");
             var textureShelfVertical = Content.Load<Texture2D>("shelfVertical");
             var textureCashier = Content.Load<Texture2D>("cashier");
             var textureEnemy = Content.Load<Texture2D>("enemy");
-            LevelObject shelf = new LevelObject(1750, 800, textureShelf);
-            LevelObject shelf1 = new LevelObject(1750, 500, textureShelf);
-            LevelObject shelf2 = new LevelObject(1600, 500, textureShelf);
-            LevelObject shelf3 = new LevelObject(1600, 800, textureShelf);
-            LevelObject shelf4 = new LevelObject(1300, 800, textureShelf);
-            LevelObject shelf10 = new LevelObject(1450, 800, textureShelf);
-            LevelObject shelf11 = new LevelObject(1600, 800, textureShelf);
-            LevelObject shelf12 = new LevelObject(1600, 800, textureShelf);
-            LevelObject shelf9 = new LevelObject(1200, 740, textureShelfVertical);
-            LevelObject shelf5 = new LevelObject(1200, 600, textureShelfVertical);
-            LevelObject shelf6 = new LevelObject(1600, 350, textureShelfVertical);
-            LevelObject shelf7 = new LevelObject(1200, 450, textureShelfVertical);
-            LevelObject shelf22 = new LevelObject(1600, 200, textureShelfVertical);
-            LevelObject shelf8 = new LevelObject(1050, 450, textureShelf);
-            LevelObject shelf13 = new LevelObject(900, 450, textureShelf);
-            LevelObject shelf14 = new LevelObject(750, 450, textureShelf);
-            LevelObject shelf15 = new LevelObject(600, 450, textureShelf);
-            LevelObject shelf16 = new LevelObject(450, 450, textureShelf);
-            LevelObject shelf17 = new LevelObject(300, 450, textureShelf);
-            LevelObject shelf18 = new LevelObject(1450, 200, textureShelf);
-            LevelObject shelf19 = new LevelObject(1300, 200, textureShelf);
-            LevelObject shelf20 = new LevelObject(1150, 200, textureShelf);
-            LevelObject shelf21 = new LevelObject(1000, 200, textureShelf);
-            LevelObject shelf23 = new LevelObject(850, 200, textureShelf);
-            LevelObject shelf24 = new LevelObject(700, 200, textureShelf);
-            LevelObject shelf25 = new LevelObject(550, 200, textureShelf);
-            LevelObject shelf26 = new LevelObject(400, 200, textureShelf);
+            var texture = Content.Load<Texture2D>("player1");
 
-            objectList.Add(shelf);
-            objectList.Add(shelf1);
-            objectList.Add(shelf2);
-            objectList.Add(shelf3);
-            objectList.Add(shelf4);
-            objectList.Add(shelf5);
-            objectList.Add(shelf6);
-            objectList.Add(shelf7);
-            objectList.Add(shelf8);
-            objectList.Add(shelf9);
-            objectList.Add(shelf10);
-            objectList.Add(shelf11);
-            objectList.Add(shelf12);
-            objectList.Add(shelf13);
-            objectList.Add(shelf14);
-            objectList.Add(shelf15);
-            objectList.Add(shelf16);
-            objectList.Add(shelf17);
-            objectList.Add(shelf18);
-            objectList.Add(shelf19);
-            objectList.Add(shelf20);
-            objectList.Add(shelf21);
-            objectList.Add(shelf22);
-            objectList.Add(shelf23);
-            objectList.Add(shelf24);
-            objectList.Add(shelf25);
-            objectList.Add(shelf26);
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml");
 
+            //Load Shelves
+            XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
+            for(int i = 0; i < verticalShelves.Count; i++)
+            {
+                LevelObject obj = new LevelObject(Int32.Parse(verticalShelves[i].FirstChild.InnerText),Int32.Parse(verticalShelves[i].LastChild.InnerText), textureShelfVertical);
+                objectList.Add(obj);
+            }
+            XmlNodeList horizontalShelves = xDoc.GetElementsByTagName("HorizontalShelve");
+            for (int i = 0; i < horizontalShelves.Count; i++)
+            {
+                LevelObject obj = new LevelObject(Int32.Parse(horizontalShelves[i].FirstChild.InnerText), Int32.Parse(horizontalShelves[i].LastChild.InnerText), textureShelf);
+                objectList.Add(obj);
+            }
 
-            cashier.texture = textureCashier;
+            //Init cashier
+            XmlNodeList cashierEl = xDoc.GetElementsByTagName("Cashier"); 
+            cashier = new LevelObject(Int32.Parse(cashierEl[0].FirstChild.InnerText), Int32.Parse(cashierEl[0].LastChild.InnerText), textureCashier);
 
             //Init Player
-            var texture = Content.Load<Texture2D>("player1");
-            player = new Player(texture);
-            player.Position = new Vector2(1800, 700);
+            XmlNodeList playerEl = xDoc.GetElementsByTagName("Player");
+            player = new Player(Int32.Parse(playerEl[0].FirstChild.InnerText), Int32.Parse(playerEl[0].LastChild.InnerText), texture);
 
             //Init textures
             var singMilkTexture = Content.Load<Texture2D>("singmilk");
@@ -127,29 +94,59 @@ namespace PandemicShoppingGame
             var singKetchTexture = Content.Load<Texture2D>("singKetch");
             var singOliveTexture = Content.Load<Texture2D>("singOlive");
 
-            //Init shoppinglist            
-            Product singMilk = new Product("singMilk", 0, 70, singMilkTexture);
-            Product singBread = new Product("singBread", 0, 70, singBreadTexture);
-            Product singKetch = new Product("singKetch", 0, 70, singKetchTexture);
-            Product SingOlive = new Product("SingOlive", 0, 70, singOliveTexture);
+            //Init products in world
+            XmlNodeList productsinWorld = xDoc.GetElementsByTagName("WorldProduct");
+            for (int i = 0; i < productsinWorld.Count; i++)
+            {
+                Product prod = new Product(productsinWorld[i].FirstChild.InnerText, Int32.Parse(productsinWorld[i].ChildNodes[1].InnerText), Int32.Parse(productsinWorld[i].ChildNodes[2].InnerText) , null);
+                if(productsinWorld[i].FirstChild.InnerText == "singMilk")
+                {
+                    prod.texture = singMilkTexture;
+                } else if(productsinWorld[i].FirstChild.InnerText == "singBread")
+                {
+                    prod.texture = singBreadTexture;
+                } else if (productsinWorld[i].FirstChild.InnerText == "singKetch")
+                {
+                    prod.texture = singKetchTexture;
+                }
+                else if (productsinWorld[i].FirstChild.InnerText == "SingOlive")
+                {
+                    prod.texture = singOliveTexture;
+                }
+                productList.Add(prod);
+            }
 
-            shoppingList.Add(singMilk);
-            shoppingList.Add(singBread);
-            shoppingList.Add(singKetch);
-            shoppingList.Add(SingOlive);
+            //Init products in Shoppinglist
+            XmlNodeList productsShoplist = xDoc.GetElementsByTagName("ShoppingListProduct");
+            for (int i = 0; i < productsShoplist.Count; i++)
+            {
+                Product prod = new Product(productsShoplist[i].FirstChild.InnerText, 0, 70, null);
+                if (productsShoplist[i].FirstChild.InnerText == "singMilk")
+                {
+                    prod.texture = singMilkTexture;
+                }
+                else if (productsShoplist[i].FirstChild.InnerText == "singBread")
+                {
+                    prod.texture = singBreadTexture;
+                }
+                else if (productsShoplist[i].FirstChild.InnerText == "singKetch")
+                {
+                    prod.texture = singKetchTexture;
+                }
+                else if (productsShoplist[i].FirstChild.InnerText == "SingOlive")
+                {
+                    prod.texture = singOliveTexture;
+                }
+                shoppingList.Add(prod);
+            }
 
-
-            //Init Products in world
-            Product singMilkWorld = new Product("singMilk", 1000, 400, singMilkTexture);
-            Product singBreadWorld = new Product("singBread", 600, 400, singBreadTexture);
-
-            productList.Add(singMilkWorld);
-            productList.Add(singBreadWorld);
-
-            //Init Enemies
-            Enemy enemy1 = new Enemy(1000, 300, textureEnemy);
-
-            enemies.Add(enemy1);
+            //Init enemies
+            XmlNodeList enemiesEl = xDoc.GetElementsByTagName("Enemy");
+            for (int i = 0; i < enemiesEl.Count; i++)
+            {
+                Enemy en = new Enemy(Int32.Parse(enemiesEl[i].FirstChild.InnerText), Int32.Parse(enemiesEl[i].LastChild.InnerText), textureEnemy);
+                enemies.Add(en);
+            }
 
             base.Initialize();
             
@@ -223,9 +220,6 @@ namespace PandemicShoppingGame
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap);
             spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), new Rectangle(0,0, background.Width * 30, background.Height * 20), Color.White);
             spriteBatch.End();
-
-
-            // TODO: Add your drawing code here
            
             spriteBatch.Begin();
 
@@ -280,9 +274,6 @@ namespace PandemicShoppingGame
             {
                 prod.Draw(spriteBatch);
             }
-
-
-
             spriteBatch.End();
 
             base.Draw(gameTime);

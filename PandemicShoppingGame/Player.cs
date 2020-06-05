@@ -21,9 +21,11 @@ namespace PandemicShoppingGame
         public KeyboardState oldState;
         public int health;
 
-        public Player(Texture2D texture)
+        public Player(int x, int y, Texture2D texture)
         {
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
+            this.Position.X = x;
+            this.Position.Y = y;
             this.texture = texture;
             this.health = 100;
         }

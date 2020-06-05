@@ -35,7 +35,7 @@ namespace PandemicShoppingGame
         {
             float playerx = player.Position.X;
             float playery = player.Position.Y;
-            if(Math.Abs(playerx - x) < 50 && Math.Abs(playery - y) < 50)
+            if(Math.Abs(playerx - x) < 100 && Math.Abs(playery - y) < 100)
             {
                 return true;
             }
