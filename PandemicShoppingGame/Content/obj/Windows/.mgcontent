@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/bag.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/cashier.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/enemy.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/newFont.spritefont</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/player.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/player1.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/shelf.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/shelfVertical.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/shoplist.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/singbread.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/singketch.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/singmilk.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/singolive.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShoppingGame/Content/tile.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

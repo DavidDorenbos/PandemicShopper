@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<World>
+  <Name>Level 1</Name>
+  <Player>
+    <Xcoord> </Xcoord>
+    <Ycoord> </Ycoord>
+  </Player>
+  <Cashier>
+    <Xcoord> </Xcoord>
+    <Ycoord> </Ycoord>
+  </Cashier>
+  <Objects>
+    <VerticalShelves>
+      <VerticalShelve>
+        <Xcoord> </Xcoord>
+        <Ycoord> </Ycoord>
+      </VerticalShelve>
+    </VerticalShelves>
+    <HorizontalShelves>
+      <HorizontalShelve>
+        <Xcoord> </Xcoord>
+        <Ycoord> </Ycoord>
+      </HorizontalShelve>
+    </HorizontalShelves>
+  </Objects>
+  <WorldProducts>
+    <WorldProduct>
+      <Name></Name>
+      <Xcoord> </Xcoord>
+      <Ycoord> </Ycoord>
+    </WorldProduct>
+  </WorldProducts>
+  <ShoppingListProducts>
+    <ShoppingListProduct>
+      <Name></Name>
+      <Xcoord> </Xcoord>
+      <Ycoord> </Ycoord>
+    </ShoppingListProduct>
+  </ShoppingListProducts>
+  <Enemies>
+    <Enemy>
+      <Xcoord> </Xcoord>
+      <Ycoord> </Ycoord>
+    </Enemy>
+  </Enemies>
+</World>
+  
