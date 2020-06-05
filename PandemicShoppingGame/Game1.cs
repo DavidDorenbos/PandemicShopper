@@ -16,6 +16,9 @@ namespace PandemicShoppingGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        enum GameState { mainMenu, inGame, endGame } //Game state available.
+        GameState currentGameState = GameState.mainMenu; //Sets default game state.
+
         private SpriteFont font;
 
         private Player player;
@@ -41,7 +44,6 @@ namespace PandemicShoppingGame
             graphics.HardwareModeSwitch = false;
             Content.RootDirectory = "Content";
             this.level = level;
-            
         }
 
         /// <summary>
@@ -68,9 +70,9 @@ namespace PandemicShoppingGame
 
             //Load Shelves
             XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
-            for(int i = 0; i < verticalShelves.Count; i++)
+            for (int i = 0; i < verticalShelves.Count; i++)
             {
-                LevelObject obj = new LevelObject(Int32.Parse(verticalShelves[i].FirstChild.InnerText),Int32.Parse(verticalShelves[i].LastChild.InnerText), textureShelfVertical);
+                LevelObject obj = new LevelObject(Int32.Parse(verticalShelves[i].FirstChild.InnerText), Int32.Parse(verticalShelves[i].LastChild.InnerText), textureShelfVertical);
                 objectList.Add(obj);
             }
             XmlNodeList horizontalShelves = xDoc.GetElementsByTagName("HorizontalShelve");
@@ -81,7 +83,7 @@ namespace PandemicShoppingGame
             }
 
             //Init cashier
-            XmlNodeList cashierEl = xDoc.GetElementsByTagName("Cashier"); 
+            XmlNodeList cashierEl = xDoc.GetElementsByTagName("Cashier");
             cashier = new LevelObject(Int32.Parse(cashierEl[0].FirstChild.InnerText), Int32.Parse(cashierEl[0].LastChild.InnerText), textureCashier);
 
             //Init Player
@@ -98,14 +100,16 @@ namespace PandemicShoppingGame
             XmlNodeList productsinWorld = xDoc.GetElementsByTagName("WorldProduct");
             for (int i = 0; i < productsinWorld.Count; i++)
             {
-                Product prod = new Product(productsinWorld[i].FirstChild.InnerText, Int32.Parse(productsinWorld[i].ChildNodes[1].InnerText), Int32.Parse(productsinWorld[i].ChildNodes[2].InnerText) , null);
-                if(productsinWorld[i].FirstChild.InnerText == "singMilk")
+                Product prod = new Product(productsinWorld[i].FirstChild.InnerText, Int32.Parse(productsinWorld[i].ChildNodes[1].InnerText), Int32.Parse(productsinWorld[i].ChildNodes[2].InnerText), null);
+                if (productsinWorld[i].FirstChild.InnerText == "singMilk")
                 {
                     prod.texture = singMilkTexture;
-                } else if(productsinWorld[i].FirstChild.InnerText == "singBread")
+                }
+                else if (productsinWorld[i].FirstChild.InnerText == "singBread")
                 {
                     prod.texture = singBreadTexture;
-                } else if (productsinWorld[i].FirstChild.InnerText == "singKetch")
+                }
+                else if (productsinWorld[i].FirstChild.InnerText == "singKetch")
                 {
                     prod.texture = singKetchTexture;
                 }
@@ -149,7 +153,7 @@ namespace PandemicShoppingGame
             }
 
             base.Initialize();
-            
+
         }
 
         /// <summary>
@@ -182,7 +186,41 @@ namespace PandemicShoppingGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            player.Update(gameTime, objectList, productList,enemies);
+            player.Update(gameTime, objectList, productList, enemies);
+
+            switch (currentGameState)
+            {
+                case GameState.mainMenu:
+                    {
+                        if (Keyboard.GetState().IsKeyDown(Keys.P))
+                        {
+                            currentGameState = GameState.inGame;
+                        }
+                        //Change screen from mainmenu to the game.
+                        //Will do wen S for start is pressed.
+                    }
+                    break;
+                case GameState.inGame:
+                    {
+                        if (Keyboard.GetState().IsKeyDown(Keys.L))
+                        {
+                            currentGameState = GameState.endGame;
+                        }
+                        //Similar to above, only will this change from ingame to the main menu when
+                        //escape is pressed.
+                    }
+                    break;
+                case GameState.endGame:
+                    {
+                        if (Keyboard.GetState().IsKeyDown(Keys.M))
+                        {
+                            currentGameState = GameState.mainMenu;
+                            //Similar to above, only will this change from endgame screen to the main menu when
+                            //l is pressed.
+                        }
+                    }
+                    break;
+            }
 
             //End game
             if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player) || player.health == 0)
@@ -191,7 +229,7 @@ namespace PandemicShoppingGame
                 List<string> shoplist = new List<string>();
                 List<string> inventory = new List<string>();
                 IEnumerable<string> missing;
-                
+
                 foreach (Product prod in player.inventory)
                 {
                     inventory.Add(prod.name);
@@ -200,12 +238,11 @@ namespace PandemicShoppingGame
                 {
                     shoplist.Add(prod.name);
                 }
-                
+
                 missing = shoplist.Except(inventory);
                 score = player.health - (missing.Count() * 10);
-                
+
             }
-           
 
             base.Update(gameTime);
         }
@@ -216,65 +253,76 @@ namespace PandemicShoppingGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            //Draw Background
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap);
-            spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), new Rectangle(0,0, background.Width * 30, background.Height * 20), Color.White);
-            spriteBatch.End();
-           
-            spriteBatch.Begin();
-
-            //Draw Health
-            spriteBatch.DrawString(font, "Health: " + player.health, new Vector2(20, 20), Color.Black);
-            player.Draw(spriteBatch);
-
-            //Draw Health
-            spriteBatch.DrawString(font, "Score: " + score, new Vector2(200, 20), Color.Black);
-            player.Draw(spriteBatch);
-
-            //Draw Cashier
-            cashier.Draw(spriteBatch);
-
-            //Draw ShoppingList
-            spriteBatch.Draw(textureShopList, new Rectangle(20,60,40,40), Color.White);
-            int xPositionShoplistItems = 70;
-            for (int i = 0; i < shoppingList.Count; i++)
-            {  
-                shoppingList[i].Position.X = xPositionShoplistItems;
-                shoppingList[i].Draw(spriteBatch);
-                //Alignment Shoppinglist items
-                xPositionShoplistItems += 20 + shoppingList[i].texture.Width;
-            }
-
-            //Draw Inventory
-            spriteBatch.Draw(textureBag, new Rectangle(20, 120,40,40), Color.White);
-            int xPositionInventoryItems = 70;
-            for (int i = 0; i < player.inventory.Count; i++)
+            if (currentGameState == GameState.mainMenu)
             {
-                player.inventory[i].Position.X = xPositionInventoryItems;
-                player.inventory[i].Position.Y = 130;
-                player.inventory[i].Draw(spriteBatch);
-                //Alignment Inventory items
-                xPositionInventoryItems += 20 + player.inventory[i].texture.Width;
+                GraphicsDevice.Clear(Color.Red);
             }
-
-            //Draw Shelves
-            for (int i = 0; i < objectList.Count; i++)
+            if (currentGameState == GameState.inGame)
             {
-                objectList[i].Draw(spriteBatch);
-            }
+                //Draw Background
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap);
+                spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), new Rectangle(0, 0, background.Width * 30, background.Height * 20), Color.White);
+                spriteBatch.End();
 
-            //Draw Enemies
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                enemies[i].Draw(spriteBatch);
-            }
+                spriteBatch.Begin();
 
-            //Draw Products In world
-            foreach (Product prod in productList)
-            {
-                prod.Draw(spriteBatch);
+                //Draw Health
+                spriteBatch.DrawString(font, "Health: " + player.health, new Vector2(20, 20), Color.Black);
+                player.Draw(spriteBatch);
+
+                //Draw Health
+                spriteBatch.DrawString(font, "Score: " + score, new Vector2(200, 20), Color.Black);
+                player.Draw(spriteBatch);
+
+                //Draw Cashier
+                cashier.Draw(spriteBatch);
+
+                //Draw ShoppingList
+                spriteBatch.Draw(textureShopList, new Rectangle(20, 60, 40, 40), Color.White);
+                int xPositionShoplistItems = 70;
+                for (int i = 0; i < shoppingList.Count; i++)
+                {
+                    shoppingList[i].Position.X = xPositionShoplistItems;
+                    shoppingList[i].Draw(spriteBatch);
+                    //Alignment Shoppinglist items
+                    xPositionShoplistItems += 20 + shoppingList[i].texture.Width;
+                }
+
+                //Draw Inventory
+                spriteBatch.Draw(textureBag, new Rectangle(20, 120, 40, 40), Color.White);
+                int xPositionInventoryItems = 70;
+                for (int i = 0; i < player.inventory.Count; i++)
+                {
+                    player.inventory[i].Position.X = xPositionInventoryItems;
+                    player.inventory[i].Position.Y = 130;
+                    player.inventory[i].Draw(spriteBatch);
+                    //Alignment Inventory items
+                    xPositionInventoryItems += 20 + player.inventory[i].texture.Width;
+                }
+
+                //Draw Shelves
+                for (int i = 0; i < objectList.Count; i++)
+                {
+                    objectList[i].Draw(spriteBatch);
+                }
+
+                //Draw Enemies
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    enemies[i].Draw(spriteBatch);
+                }
+
+                //Draw Products In world
+                foreach (Product prod in productList)
+                {
+                    prod.Draw(spriteBatch);
+                }
+                spriteBatch.End();
             }
-            spriteBatch.End();
+            if (currentGameState == GameState.endGame)
+            {
+                GraphicsDevice.Clear(Color.Blue);
+            }
 
             base.Draw(gameTime);
         }
