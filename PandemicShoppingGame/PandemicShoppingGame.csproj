@@ -41,8 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Component.cs" />
     <Compile Include="Enemy.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="BaseGame.cs" />
+    <Compile Include="GameControls\Button.cs" />
+    <Compile Include="GameStates\GameState.cs" />
+    <Compile Include="GameStates\MainMenuState.cs" />
+    <Compile Include="GameStates\State.cs" />
     <Compile Include="LevelObject.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Product.cs" />
@@ -58,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="Levels\Level1.xml" />
+    <Content Include="Levels\BaseGame.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../../School/Stenden/Jaar 3/P4/Csharp2/Game/MainMenuBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../School/Stenden/Jaar 3/P4/Csharp2/Game/MainMenuBackground.png;Backgrounds/MainMenuBackground.png
+
 #begin bag.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -24,6 +36,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:bag.png
+
+#begin Buttons/Button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Buttons/Button.png
+
+#begin Buttons/Start.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Buttons/Start.png
 
 #begin cashier.png
 /importer:TextureImporter
@@ -48,6 +84,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:enemy.png
+
+#begin Fonts/Standard.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Standard.spritefont
 
 #begin newFont.spritefont
 /importer:FontDescriptionImporter
