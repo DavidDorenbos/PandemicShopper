@@ -7,6 +7,7 @@
     <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/../../../../../School/Stenden/Jaar 3/P4/Csharp2/Game/MainMenuBackground.png</File>
     <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bag.png</File>
     <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Buttons/Button.png</File>
+    <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Buttons/Exit.png</File>
     <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Buttons/Start.png</File>
     <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/cashier.png</File>
     <File>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/enemy.png</File>
@@ -25,6 +26,7 @@
   </SourceFiles>
   <DestFiles>
     <File>Backgrounds/MainMenuBackground.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

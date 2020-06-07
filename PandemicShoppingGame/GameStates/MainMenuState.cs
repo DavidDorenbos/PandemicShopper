@@ -19,38 +19,48 @@ namespace PandemicShoppingGame.GameStates
           : base(game, graphicsDevice, content)
         {
             var buttonTexture = _content.Load<Texture2D>("Buttons/Button");
+            var startButtonTexture = _content.Load<Texture2D>("Buttons/Start");
+            var exitButtonTexture = _content.Load<Texture2D>("Buttons/Exit");
+
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
+
+            var startGameButton = new Button(startButtonTexture, buttonFont)
+            {
+                Position = new Vector2(735, 170),
+            };
+
+            startGameButton.Click += StartGameButton_Click;
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 200),
-                Text = "New Game",
+                Position = new Vector2(735, 376),
+                Text = "Levels",
             };
 
             newGameButton.Click += NewGameButton_Click;
 
             var loadGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 250),
-                Text = "Load Game",
+                Position = new Vector2(735, 582),
+                Text = "Options",
             };
 
             loadGameButton.Click += LoadGameButton_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var exitGameButton = new Button(exitButtonTexture, buttonFont)
             {
-                Position = new Vector2(300, 300),
-                Text = "Quit Game",
+                Position = new Vector2(735, 788),
             };
 
-            quitGameButton.Click += QuitGameButton_Click;
+            exitGameButton.Click += QuitGameButton_Click;
 
             _components = new List<Component>()
-      {
-        newGameButton,
-        loadGameButton,
-        quitGameButton,
-      };
+              {
+                startGameButton,
+                newGameButton,
+                loadGameButton,
+                exitGameButton,
+              };
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -61,6 +71,11 @@ namespace PandemicShoppingGame.GameStates
                 component.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
+        }
+
+        private void StartGameButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Fankie");
         }
 
         private void LoadGameButton_Click(object sender, EventArgs e)

@@ -113,3 +113,4 @@ E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\Pande
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Fonts\Standard.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Backgrounds\MainMenuBackground.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Button.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Exit.xnb
