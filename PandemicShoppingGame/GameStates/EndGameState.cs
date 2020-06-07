@@ -10,9 +10,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PandemicShoppingGame.GameStates
 {
-    public class GameState : State
+    public class EndGameState : State
     {
-        public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
         }

@@ -20,6 +20,8 @@ namespace PandemicShoppingGame.GameStates
         {
             var buttonTexture = _content.Load<Texture2D>("Buttons/Button");
             var startButtonTexture = _content.Load<Texture2D>("Buttons/Start");
+            var levelsButtonTexture = _content.Load<Texture2D>("Buttons/Levels");
+            var optionButtonTexture = _content.Load<Texture2D>("Buttons/Options");
             var exitButtonTexture = _content.Load<Texture2D>("Buttons/Exit");
 
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
@@ -31,21 +33,19 @@ namespace PandemicShoppingGame.GameStates
 
             startGameButton.Click += StartGameButton_Click;
 
-            var newGameButton = new Button(buttonTexture, buttonFont)
+            var levelButton = new Button(levelsButtonTexture, buttonFont)
             {
                 Position = new Vector2(735, 376),
-                Text = "Levels",
             };
 
-            newGameButton.Click += NewGameButton_Click;
+            levelButton.Click += LevelButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
+            var optionButton = new Button(optionButtonTexture, buttonFont)
             {
                 Position = new Vector2(735, 582),
-                Text = "Options",
             };
 
-            loadGameButton.Click += LoadGameButton_Click;
+            optionButton.Click += OptionButton_Click;
 
             var exitGameButton = new Button(exitButtonTexture, buttonFont)
             {
@@ -57,10 +57,56 @@ namespace PandemicShoppingGame.GameStates
             _components = new List<Component>()
               {
                 startGameButton,
-                newGameButton,
-                loadGameButton,
+                levelButton,
+                optionButton,
                 exitGameButton,
               };
+        }
+
+        private void StartGameButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+        }
+
+        private void LevelButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Fankie");
+        }
+
+        private void OptionButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new OptionsGameState(_game, _graphicsDevice, _content));
+        }
+
+        private void QuitGameButton_Click(object sender, EventArgs e)
+        {
+            _game.Exit();
+        }
+
+        public override void Initialize()
+        {
+
+        }
+
+        public override void LoadContent()
+        {
+
+        }
+
+        public override void UnloadContent()
+        {
+
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            foreach (var component in _components)
+                component.Update(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            // remove sprites if they're not needed
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -73,50 +119,5 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.End();
         }
 
-        private void StartGameButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Fankie");
-        }
-
-        private void LoadGameButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Load Game");
-        }
-
-        private void NewGameButton_Click(object sender, EventArgs e)
-        {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
-        }
-
-        public override void PostUpdate(GameTime gameTime)
-        {
-            // remove sprites if they're not needed
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            foreach (var component in _components)
-                component.Update(gameTime);
-        }
-
-        private void QuitGameButton_Click(object sender, EventArgs e)
-        {
-            _game.Exit();
-        }
-
-        public override void Initialize()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void LoadContent()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UnloadContent()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
