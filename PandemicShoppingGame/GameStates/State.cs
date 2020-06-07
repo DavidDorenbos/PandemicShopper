@@ -24,10 +24,6 @@ namespace PandemicShoppingGame.GameStates
 
         #region Methods
 
-        public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
-
-        public abstract void PostUpdate(GameTime gameTime);
-
         public State(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
         {
             _game = game;
@@ -37,7 +33,17 @@ namespace PandemicShoppingGame.GameStates
             _content = content;
         }
 
+        public abstract void Initialize();
+
+        public abstract void LoadContent();
+
+        public abstract void UnloadContent();
+
         public abstract void Update(GameTime gameTime);
+
+        public abstract void PostUpdate(GameTime gameTime);
+
+        public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
 
         #endregion
     }

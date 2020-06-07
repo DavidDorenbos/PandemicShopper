@@ -103,5 +103,20 @@ namespace PandemicShoppingGame.GameStates
         {
             _game.Exit();
         }
+
+        public override void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void LoadContent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void UnloadContent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

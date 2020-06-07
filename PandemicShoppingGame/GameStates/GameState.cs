@@ -22,9 +22,24 @@ namespace PandemicShoppingGame.GameStates
 
         }
 
+        public override void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void LoadContent()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void PostUpdate(GameTime gameTime)
         {
 
+        }
+
+        public override void UnloadContent()
+        {
+            throw new NotImplementedException();
         }
 
         public override void Update(GameTime gameTime)
