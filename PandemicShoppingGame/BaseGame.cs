@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using PandemicShoppingGame.GameStates;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using PandemicShoppingGame.GameStates;
+using Microsoft.Xna.Framework.Media; 
 
 namespace PandemicShoppingGame
 {
@@ -16,6 +18,7 @@ namespace PandemicShoppingGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Song song;
 
         private State _currentState;
 
@@ -64,6 +67,12 @@ namespace PandemicShoppingGame
             _texture = Content.Load<Texture2D>("Backgrounds/MainMenuBackground");
             _position = new Vector2(0, 0);
 
+            song = Content.Load<Song>("Music/MenuBackgroundSong");
+            MediaPlayer.Play(song);
+            //  Uncomment the following line will also loop the song
+            //  MediaPlayer.IsRepeating = true;
+            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
             _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content);
         }
 
@@ -83,6 +92,16 @@ namespace PandemicShoppingGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.F1))
+            {
+                MediaPlayer.Volume += 0.1f;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.F2))
+            {
+                MediaPlayer.Volume -= 0.1f;
+            }
+
             if (_nextState != null)
             {
                 _currentState = _nextState;
@@ -110,6 +129,13 @@ namespace PandemicShoppingGame
             _currentState.Draw(gameTime, spriteBatch);
 
             base.Draw(gameTime);
+        }
+
+        void MediaPlayer_MediaStateChanged(object sender, System.EventArgs e)
+        {
+            // 0.0f is silent, 1.0f is full volume
+            MediaPlayer.Volume -= 0.1f;
+            MediaPlayer.Play(song);
         }
     }
 }

@@ -117,3 +117,5 @@ E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\Pande
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\MainMenu.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Levels.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Options.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Music\MenuBackgroundSong.wma
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Music\MenuBackgroundSong.xnb
