@@ -191,6 +191,7 @@ namespace PandemicShoppingGame.GameStates
                 missing = shoplist.Except(inventory);
                 score = player.health - (missing.Count() * 10);
 
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content));
             }
         }
 
