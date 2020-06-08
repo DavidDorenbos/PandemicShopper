@@ -14,7 +14,7 @@ namespace PandemicShoppingGame
         [STAThread]
         static void Main()
         {
-            using (var game = new BaseGame("BaseGame"))
+            using (var game = new BaseGame())
                 game.Run();
         }
     }

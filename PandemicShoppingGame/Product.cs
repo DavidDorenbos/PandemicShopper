@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PandemicShoppingGame
 {
-    class Product
+    public class Product
     {
         public string name;
         private int x;

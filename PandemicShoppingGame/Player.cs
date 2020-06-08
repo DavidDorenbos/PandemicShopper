@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PandemicShoppingGame
 {
-    class Player
+    public class Player
     {
         public Texture2D texture;
         public Vector2 Position;

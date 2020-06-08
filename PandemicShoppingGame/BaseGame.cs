@@ -29,9 +29,7 @@ namespace PandemicShoppingGame
             _nextState = state;
         }
 
-        public string level;
-
-        public BaseGame(string level)
+        public BaseGame()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = true;

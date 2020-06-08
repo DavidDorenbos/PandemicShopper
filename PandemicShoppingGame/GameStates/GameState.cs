@@ -40,14 +40,14 @@ namespace PandemicShoppingGame.GameStates
         List<Product> productList = new List<Product>();
         List<Enemy> enemies = new List<Enemy>();
 
-        public int score = 0;
-        public string level;
+        private int score = 0;
+        private string level;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
             font  = _content.Load<SpriteFont>("Fonts/Standard");
-            this.level = "BaseGame";
+            this.level = "1";
 
             //Initialize all used variables
             textureBag = _content.Load<Texture2D>("bag");
@@ -164,29 +164,7 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Update(GameTime gameTime)
         {
-            player.Update(gameTime, objectList, productList, enemies);
 
-            //End game
-            if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player) || player.health == 0)
-            {
-                player.Speed = 0;
-                List<string> shoplist = new List<string>();
-                List<string> inventory = new List<string>();
-                IEnumerable<string> missing;
-
-                foreach (Product prod in player.inventory)
-                {
-                    inventory.Add(prod.name);
-                }
-                foreach (Product prod in shoppingList)
-                {
-                    shoplist.Add(prod.name);
-                }
-
-                missing = shoplist.Except(inventory);
-                score = player.health - (missing.Count() * 10);
-
-            }
         }
 
         public override void PostUpdate(GameTime gameTime)
