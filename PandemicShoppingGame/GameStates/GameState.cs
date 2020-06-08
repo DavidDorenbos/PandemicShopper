@@ -14,19 +14,19 @@ namespace PandemicShoppingGame.GameStates
 {
     public class GameState : State
     {
-        private SpriteFont font;
+        public SpriteFont font;
 
-        private Player player;
-        private LevelObject cashier;
+        public Player player;
+        public LevelObject cashier;
 
-        private Texture2D textureShopList;
-        private Texture2D textureBag;
-        private Texture2D background;
-        private Texture2D textureShelf;
-        private Texture2D textureShelfVertical;
-        private Texture2D textureCashier;
-        private Texture2D textureEnemy;
-        private Texture2D texture;
+        public Texture2D textureShopList;
+        public Texture2D textureBag;
+        public Texture2D background;
+        public Texture2D textureShelf;
+        public Texture2D textureShelfVertical;
+        public Texture2D textureCashier;
+        public Texture2D textureEnemy;
+        public Texture2D texture;
 
         private Texture2D singMilkTexture;
         private Texture2D singBreadTexture;
@@ -36,19 +36,19 @@ namespace PandemicShoppingGame.GameStates
         private int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         private int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-        List<LevelObject> objectList = new List<LevelObject>();
-        List<Product> shoppingList = new List<Product>();
-        List<Product> productList = new List<Product>();
-        List<Enemy> enemies = new List<Enemy>();
+        public List<LevelObject> objectList = new List<LevelObject>();
+        public List<Product> shoppingList = new List<Product>();
+        public List<Product> productList = new List<Product>();
+        public List<Enemy> enemies = new List<Enemy>();
 
-        private int score = 0;
-        private string level;
+        public int score = 0;
+        public string level;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
             font  = _content.Load<SpriteFont>("Fonts/Standard");
-            this.level = "1";
+            level = "1";
 
             //Initialize all used variables
             textureBag = _content.Load<Texture2D>("bag");

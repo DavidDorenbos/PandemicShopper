@@ -14,7 +14,7 @@ namespace PandemicShoppingGame.GameParts
         public Texture2D texture;
         public Vector2 Position;
         public float Speed = 2f;
-        private float angle = 0;
+        public float angle = 0;
         public Vector2 origin;
         public List<Product> inventory = new List<Product>();
         public KeyboardState newState;
