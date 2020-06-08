@@ -14,6 +14,8 @@ namespace PandemicShoppingGame.GameStates
     public class MainMenuState : State
     {
         private List<Component> _components;
+        private Texture2D backgroundTexture;
+        private Vector2 backgroundPosition;
 
         public MainMenuState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
@@ -25,6 +27,9 @@ namespace PandemicShoppingGame.GameStates
             var exitButtonTexture = _content.Load<Texture2D>("Buttons/Exit");
 
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
+
+            backgroundTexture = _content.Load<Texture2D>("Backgrounds/MainMenuBackground");
+            backgroundPosition = new Vector2(0, 0);
 
             var startGameButton = new Button(startButtonTexture, buttonFont)
             {
@@ -70,7 +75,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void LevelButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Fankie");
+            _game.ChangeState(new LevelSelectionState(_game, _graphicsDevice, _content));
         }
 
         private void OptionButton_Click(object sender, EventArgs e)
@@ -111,6 +116,10 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
+            spriteBatch.Draw(backgroundTexture, backgroundPosition, Color.White);
+            spriteBatch.End();
+
             spriteBatch.Begin();
 
             foreach (var component in _components)

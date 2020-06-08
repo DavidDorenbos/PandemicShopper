@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../../School/Stenden/Jaar 3/P4/Csharp2/Game/MainMenuBackground.png
+#begin Backgrounds/MainMenuBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,7 +23,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../../../../../School/Stenden/Jaar 3/P4/Csharp2/Game/MainMenuBackground.png;Backgrounds/MainMenuBackground.png
+/build:Backgrounds/MainMenuBackground.png
 
 #begin bag.png
 /importer:TextureImporter
@@ -36,6 +36,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:bag.png
+
+#begin Buttons/Back.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Buttons/Back.png
 
 #begin Buttons/Button.png
 /importer:TextureImporter
@@ -145,13 +157,6 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Music/MenuBackgroundSong.mp3
-
-#begin newFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:newFont.spritefont
 
 #begin player.png
 /importer:TextureImporter

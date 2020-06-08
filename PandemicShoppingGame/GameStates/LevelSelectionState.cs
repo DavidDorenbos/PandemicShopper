@@ -11,18 +11,21 @@ using PandemicShoppingGame.GameControls;
 
 namespace PandemicShoppingGame.GameStates
 {
-    public class OptionsGameState : State
+    public class LevelSelectionState : State
     {
 
         private List<Component> _components;
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
 
-        public OptionsGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        private SpriteFont font;
+
+        public LevelSelectionState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
-            var backButtonTexture = _content.Load<Texture2D>("Buttons/Back");
+            font = _content.Load<SpriteFont>("Fonts/Standard");
 
+            var backButtonTexture = _content.Load<Texture2D>("Buttons/Back");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
 
             backgroundTexture = _content.Load<Texture2D>("Backgrounds/MainMenuBackground");
@@ -48,12 +51,12 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Initialize()
         {
-            
+
         }
 
         public override void LoadContent()
         {
-            
+
         }
 
         public override void UnloadContent()
@@ -69,7 +72,7 @@ namespace PandemicShoppingGame.GameStates
 
         public override void PostUpdate(GameTime gameTime)
         {
-            
+
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

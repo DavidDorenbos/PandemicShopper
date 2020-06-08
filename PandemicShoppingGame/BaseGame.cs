@@ -31,9 +31,6 @@ namespace PandemicShoppingGame
 
         public string level;
 
-        private Texture2D _texture;
-        private Vector2 _position;
-
         public BaseGame(string level)
         {
             graphics = new GraphicsDeviceManager(this);
@@ -63,9 +60,6 @@ namespace PandemicShoppingGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            _texture = Content.Load<Texture2D>("Backgrounds/MainMenuBackground");
-            _position = new Vector2(0, 0);
 
             song = Content.Load<Song>("Music/MenuBackgroundSong");
             MediaPlayer.Play(song);
@@ -122,9 +116,7 @@ namespace PandemicShoppingGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(_texture, _position, Color.White);
-            spriteBatch.End();
+            GraphicsDevice.Clear(Color.White);
 
             _currentState.Draw(gameTime, spriteBatch);
 
