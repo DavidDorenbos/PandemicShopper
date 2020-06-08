@@ -171,8 +171,8 @@ namespace PandemicShoppingGame.GameStates
         {
             player.Update(gameTime, objectList, productList, enemies);
 
-            //End game
-            if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player) || player.health == 0)
+            //Game Won
+            if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player))
             {
                 player.Speed = 0;
                 List<string> shoplist = new List<string>();
@@ -192,6 +192,12 @@ namespace PandemicShoppingGame.GameStates
                 score = player.health - (missing.Count() * 10);
 
                 _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content));
+            }
+
+            //Game Lost
+            if (player.health == 0)
+            {
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content));
             }
         }
 

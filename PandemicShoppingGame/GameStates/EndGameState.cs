@@ -21,29 +21,71 @@ namespace PandemicShoppingGame.GameStates
         public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
-            var MainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
+            var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");
+            var nextLevelsButtonTexture = _content.Load<Texture2D>("Buttons/Next");
+            var mainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
+            var exitButtonTexture = _content.Load<Texture2D>("Buttons/Exit");
 
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
 
             backgroundTexture = _content.Load<Texture2D>("Backgrounds/MainMenuBackground");
             backgroundPosition = new Vector2(0, 0);
 
-            var backButton = new Button(MainMenuButtonTexture, buttonFont)
+            var restartGameButton = new Button(restartButtonTexture, buttonFont)
             {
-                Position = new Vector2(1300, 780),
+                Position = new Vector2(735, 170),
             };
 
-            backButton.Click += BackButton_Click;
+            restartGameButton.Click += RestartGameButton_Click;
+
+            var nextLevelButton = new Button(nextLevelsButtonTexture, buttonFont)
+            {
+                Position = new Vector2(735, 376),
+            };
+
+            nextLevelButton.Click += NextLevelButton_Click;
+
+            var mainMenuButton = new Button(mainMenuButtonTexture, buttonFont)
+            {
+                Position = new Vector2(735, 582),
+            };
+
+            mainMenuButton.Click += MainMenuButton_Click;
+
+            var exitButton = new Button(exitButtonTexture, buttonFont)
+            {
+                Position = new Vector2(735, 788),
+            };
+
+            exitButton.Click += ExitButton_Click;
 
             _components = new List<Component>()
               {
-                backButton,
+                restartGameButton,
+                nextLevelButton,
+                mainMenuButton,
+                exitButton,
               };
         }
 
-        private void BackButton_Click(object sender, EventArgs e)
+        private void RestartGameButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+        }
+
+        private void NextLevelButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+        }
+
+        private void MainMenuButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            _game.Exit();
         }
 
         public override void Initialize()

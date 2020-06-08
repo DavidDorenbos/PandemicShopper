@@ -46,6 +46,7 @@
     <Compile Include="BaseGame.cs" />
     <Compile Include="GameControls\Button.cs" />
     <Compile Include="GameStates\EndGameState.cs" />
+    <Compile Include="GameStates\GameLostState.cs" />
     <Compile Include="GameStates\GameState.cs" />
     <Compile Include="GameStates\LevelSelectionState.cs" />
     <Compile Include="GameStates\MainMenuState.cs" />
