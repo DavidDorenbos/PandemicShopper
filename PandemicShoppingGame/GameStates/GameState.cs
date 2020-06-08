@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PandemicShoppingGame.GameParts;
+using PandemicShoppingGame.Scores;
 
 namespace PandemicShoppingGame.GameStates
 {
@@ -41,14 +42,17 @@ namespace PandemicShoppingGame.GameStates
         public List<Product> productList = new List<Product>();
         public List<Enemy> enemies = new List<Enemy>();
 
+        private ScoreManager _scoreManager;
         public int score = 0;
-        public string level;
+        public int level;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
             font  = _content.Load<SpriteFont>("Fonts/Standard");
-            level = "1";
+
+            level = 1;
+            _scoreManager = new ScoreManager(level, score);
 
             //Initialize all used variables
             textureBag = _content.Load<Texture2D>("bag");
@@ -69,7 +73,6 @@ namespace PandemicShoppingGame.GameStates
 
             // TODO: Add your initialization logic here
             //Load Textures
-
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml");
 
@@ -159,7 +162,7 @@ namespace PandemicShoppingGame.GameStates
 
         public override void LoadContent()
         {
-
+            
         }
 
         public override void UnloadContent()
@@ -177,7 +180,6 @@ namespace PandemicShoppingGame.GameStates
                 player.Speed = 0;
                 List<string> shoplist = new List<string>();
                 List<string> inventory = new List<string>();
-                IEnumerable<string> missing;
 
                 foreach (Product prod in player.inventory)
                 {
@@ -188,8 +190,8 @@ namespace PandemicShoppingGame.GameStates
                     shoplist.Add(prod.name);
                 }
 
-                missing = shoplist.Except(inventory);
-                score = player.health - (missing.Count() * 10);
+                _scoreManager.CalculateScore(player.health);
+                _scoreManager.getScore();
 
                 _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content));
             }

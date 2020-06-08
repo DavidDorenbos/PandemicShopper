@@ -18,6 +18,9 @@ namespace PandemicShoppingGame.GameStates
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
 
+        private Texture2D scoreTexture;
+        private Vector2 scorePosition;
+
         public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
@@ -27,6 +30,9 @@ namespace PandemicShoppingGame.GameStates
             var exitButtonTexture = _content.Load<Texture2D>("Buttons/Exit");
 
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
+
+            scoreTexture = _content.Load<Texture2D>("Titles/ScoreTitle");
+            scorePosition = new Vector2(1300, 170);
 
             backgroundTexture = _content.Load<Texture2D>("Backgrounds/MainMenuBackground");
             backgroundPosition = new Vector2(0, 0);
@@ -58,7 +64,7 @@ namespace PandemicShoppingGame.GameStates
             };
 
             exitButton.Click += ExitButton_Click;
-
+            
             _components = new List<Component>()
               {
                 restartGameButton,
@@ -118,6 +124,10 @@ namespace PandemicShoppingGame.GameStates
         {
             spriteBatch.Begin();
             spriteBatch.Draw(backgroundTexture, backgroundPosition, Color.White);
+            spriteBatch.End();
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(scoreTexture, scorePosition, Color.White);
             spriteBatch.End();
 
             spriteBatch.Begin();

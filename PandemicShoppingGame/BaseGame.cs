@@ -61,6 +61,7 @@ namespace PandemicShoppingGame
 
             song = Content.Load<Song>("Music/MenuBackgroundSong");
             MediaPlayer.Play(song);
+            MediaPlayer.Volume = 0.5f;
             //  Uncomment the following line will also loop the song
             //  MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
