@@ -54,6 +54,8 @@ namespace PandemicShoppingGame.GameStates
             textureBag = _content.Load<Texture2D>("bag");
             textureShopList = _content.Load<Texture2D>("shoplist");
 
+            background = _content.Load<Texture2D>("tile");
+
             textureShelf = _content.Load<Texture2D>("shelf");
             textureShelfVertical = _content.Load<Texture2D>("shelfVertical");
             textureCashier = _content.Load<Texture2D>("cashier");
@@ -64,15 +66,12 @@ namespace PandemicShoppingGame.GameStates
             singBreadTexture = _content.Load<Texture2D>("singBread");
             singKetchTexture = _content.Load<Texture2D>("singKetch");
             singOliveTexture = _content.Load<Texture2D>("singOlive");
-        }
 
-        public override void Initialize()
-        {
             // TODO: Add your initialization logic here
             //Load Textures
 
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\..\\Levels/" + level + ".xml");
+            xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml");
 
             //Load Shelves
             XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
@@ -151,6 +150,11 @@ namespace PandemicShoppingGame.GameStates
                 Enemy en = new Enemy(Int32.Parse(enemiesEl[i].FirstChild.InnerText), Int32.Parse(enemiesEl[i].LastChild.InnerText), textureEnemy);
                 enemies.Add(en);
             }
+        }
+
+        public override void Initialize()
+        {
+
         }
 
         public override void LoadContent()
