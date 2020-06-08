@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Component.cs" />
-    <Compile Include="Enemy.cs" />
+    <Compile Include="GameParts\Enemy.cs" />
     <Compile Include="BaseGame.cs" />
     <Compile Include="GameControls\Button.cs" />
     <Compile Include="GameStates\EndGameState.cs" />
@@ -51,9 +51,9 @@
     <Compile Include="GameStates\MainMenuState.cs" />
     <Compile Include="GameStates\OptionsGameState.cs" />
     <Compile Include="GameStates\State.cs" />
-    <Compile Include="LevelObject.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="GameParts\LevelObject.cs" />
+    <Compile Include="GameParts\Player.cs" />
+    <Compile Include="GameParts\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

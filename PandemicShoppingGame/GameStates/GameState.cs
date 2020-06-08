@@ -8,6 +8,7 @@ using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using PandemicShoppingGame.GameParts;
 
 namespace PandemicShoppingGame.GameStates
 {
@@ -71,7 +72,7 @@ namespace PandemicShoppingGame.GameStates
             //Load Textures
 
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml");
+            xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\..\\Levels/" + level + ".xml");
 
             //Load Shelves
             XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
@@ -164,7 +165,29 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Update(GameTime gameTime)
         {
+            player.Update(gameTime, objectList, productList, enemies);
 
+            //End game
+            if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player) || player.health == 0)
+            {
+                player.Speed = 0;
+                List<string> shoplist = new List<string>();
+                List<string> inventory = new List<string>();
+                IEnumerable<string> missing;
+
+                foreach (Product prod in player.inventory)
+                {
+                    inventory.Add(prod.name);
+                }
+                foreach (Product prod in shoppingList)
+                {
+                    shoplist.Add(prod.name);
+                }
+
+                missing = shoplist.Except(inventory);
+                score = player.health - (missing.Count() * 10);
+
+            }
         }
 
         public override void PostUpdate(GameTime gameTime)

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PandemicShoppingGame
+namespace PandemicShoppingGame.GameParts
 {
     public class Player
     {
