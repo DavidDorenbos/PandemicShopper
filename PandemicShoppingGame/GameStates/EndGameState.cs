@@ -27,9 +27,11 @@ namespace PandemicShoppingGame.GameStates
         private int level;
         private int score;
 
-        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager, int level)
+        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level, int score)
           : base(game, graphicsDevice, content)
         {
+            this.score = score;
+
             if (level == 0)
             {
                 this.level = 1;
@@ -43,8 +45,6 @@ namespace PandemicShoppingGame.GameStates
             {
                 numbertextures[i] = _content.Load<Texture2D>("Numbers/" + i.ToString());
             }
-
-            score = _scoreManager.GetScore();
 
             var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");
             var nextLevelsButtonTexture = _content.Load<Texture2D>("Buttons/Next");

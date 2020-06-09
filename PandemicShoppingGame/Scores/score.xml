@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BaseGame>
   <Level1>
-    <Score>19</Score>
+    <Score>13</Score>
   </Level1>
   <Level2>
-    <Score>200</Score>
+    <Score>16</Score>
   </Level2>
   <Level3>
+    <Score>9</Score>
   </Level3>
   <Level4>
   </Level4>

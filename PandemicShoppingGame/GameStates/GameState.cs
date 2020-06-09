@@ -43,11 +43,13 @@ namespace PandemicShoppingGame.GameStates
         public List<Product> productList = new List<Product>();
         public List<Enemy> enemies = new List<Enemy>();
 
-        private ScoreManager _scoreManager;
-        public int score = 0;
-        public Stopwatch stopwatch = new Stopwatch();
-        public long time;
         public int level;
+        private int score;
+
+        private ScoreManager scoreManager;
+        public Stopwatch stopwatch = new Stopwatch();
+                
+        public long time;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
@@ -55,7 +57,6 @@ namespace PandemicShoppingGame.GameStates
             font  = _content.Load<SpriteFont>("Fonts/Standard");
 
             this.level = level;
-            _scoreManager = new ScoreManager(level, score);
 
             //Initialize all used variables
             textureBag = _content.Load<Texture2D>("bag");
@@ -176,6 +177,8 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Update(GameTime gameTime)
         {
+            scoreManager = new ScoreManager(level);
+
             player.Update(gameTime, objectList, productList, enemies);
             time = stopwatch.ElapsedMilliseconds / 1000;
             //Game Won
@@ -195,17 +198,18 @@ namespace PandemicShoppingGame.GameStates
                     shoplist.Add(prod.name);
                 }
 
-                _scoreManager.CalculateScore(player.health);
-                _scoreManager.GetScore();
+                scoreManager.CalculateScore(player.health, time);
+
+                score = scoreManager.GetScore();
 
                 level++;
-                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, _scoreManager, level));
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, level, score));
             }
 
             //Game Lost
             if (player.health == 0)
             {
-                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, _scoreManager, level));
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, level));
             }
         }
 

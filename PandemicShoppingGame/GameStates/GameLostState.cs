@@ -23,7 +23,7 @@ namespace PandemicShoppingGame.GameStates
 
         private int level;
 
-        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager, int level)
+        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
         {
             this.level = level;
