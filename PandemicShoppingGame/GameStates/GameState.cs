@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,8 @@ namespace PandemicShoppingGame.GameStates
 
         private ScoreManager _scoreManager;
         public int score = 0;
+        public Stopwatch stopwatch = new Stopwatch();
+        public long time;
         public int level;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
@@ -153,6 +156,7 @@ namespace PandemicShoppingGame.GameStates
                 Enemy en = new Enemy(Int32.Parse(enemiesEl[i].FirstChild.InnerText), Int32.Parse(enemiesEl[i].LastChild.InnerText), textureEnemy);
                 enemies.Add(en);
             }
+            stopwatch.Start();
         }
 
         public override void Initialize()
@@ -173,10 +177,11 @@ namespace PandemicShoppingGame.GameStates
         public override void Update(GameTime gameTime)
         {
             player.Update(gameTime, objectList, productList, enemies);
-
+            time = stopwatch.ElapsedMilliseconds / 1000;
             //Game Won
             if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player))
             {
+                stopwatch.Stop();
                 player.Speed = 0;
                 List<string> shoplist = new List<string>();
                 List<string> inventory = new List<string>();
@@ -229,6 +234,10 @@ namespace PandemicShoppingGame.GameStates
 
             //Draw Level
             spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth/2, 20), Color.Black);
+            player.Draw(spriteBatch);
+
+            //Draw Level
+            spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
             player.Draw(spriteBatch);
 
             //Draw Cashier
