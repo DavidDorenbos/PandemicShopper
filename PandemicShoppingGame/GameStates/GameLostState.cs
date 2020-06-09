@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PandemicShoppingGame.GameControls;
+using PandemicShoppingGame.Scores;
 
 namespace PandemicShoppingGame.GameStates
 {
@@ -20,7 +21,7 @@ namespace PandemicShoppingGame.GameStates
 
         private SpriteFont font;
 
-        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager)
           : base(game, graphicsDevice, content)
         {
             font = _content.Load<SpriteFont>("Fonts/Standard");

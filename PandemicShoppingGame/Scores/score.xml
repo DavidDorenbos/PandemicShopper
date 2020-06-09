@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <BaseGame>
+  <Level1>
+    <score></score>
+  </Level1>
+  <Level2>
+    <score></score>
+  </Level2>
 </BaseGame>

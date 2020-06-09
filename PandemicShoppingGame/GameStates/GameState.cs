@@ -193,13 +193,13 @@ namespace PandemicShoppingGame.GameStates
                 _scoreManager.CalculateScore(player.health);
                 _scoreManager.getScore();
 
-                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content));
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, _scoreManager));
             }
 
             //Game Lost
             if (player.health == 0)
             {
-                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content));
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, _scoreManager));
             }
         }
 

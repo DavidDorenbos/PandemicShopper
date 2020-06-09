@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PandemicShoppingGame.GameControls;
+using PandemicShoppingGame.Scores;
 
 namespace PandemicShoppingGame.GameStates
 {
@@ -21,7 +22,7 @@ namespace PandemicShoppingGame.GameStates
         private Texture2D scoreTexture;
         private Vector2 scorePosition;
 
-        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager)
           : base(game, graphicsDevice, content)
         {
             var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");

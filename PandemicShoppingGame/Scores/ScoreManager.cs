@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,8 @@ namespace PandemicShoppingGame.Scores
         {
             score = level * health;
 
-            XmlDocument scoreDoc = new XmlDocument();
-            scoreDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml");
+            String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
+
         }
     }
 }
