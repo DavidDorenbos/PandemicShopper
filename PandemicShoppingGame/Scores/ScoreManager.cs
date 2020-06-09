@@ -33,7 +33,7 @@ namespace PandemicShoppingGame.Scores
 
             XmlDocument doc = new XmlDocument();
             doc.Load(XmlScoreFile);
-            XmlNode levelNode = doc.SelectSingleNode("Level" + level.ToString());
+            XmlElement levelNode = doc.DocumentElement["Level" + level.ToString()];
             XmlElement scoreNode = doc.CreateElement("Score");
             scoreNode.InnerText = score.ToString();
             if(levelNode == null)
