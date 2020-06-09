@@ -44,7 +44,7 @@ namespace PandemicShoppingGame.GameStates
                 numbertextures[i] = _content.Load<Texture2D>("Numbers/" + i.ToString());
             }
 
-            score = _scoreManager.getScore();
+            score = _scoreManager.GetScore();
 
             var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");
             var nextLevelsButtonTexture = _content.Load<Texture2D>("Buttons/Next");

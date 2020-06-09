@@ -20,7 +20,7 @@ namespace PandemicShoppingGame.Scores
             this.score = score;
         }
 
-        public int getScore()
+        public int GetScore()
         {
             return score;
         }
@@ -43,7 +43,19 @@ namespace PandemicShoppingGame.Scores
             }
             else
             {
-                levelNode.AppendChild(scoreNode);
+                if (levelNode.FirstChild == null)
+                {
+                    levelNode.AppendChild(scoreNode);
+                }
+                else
+                {
+                    int highScoreEl = Int32.Parse(levelNode.FirstChild.InnerText);
+
+                    if (score > highScoreEl)
+                    {
+                        levelNode.FirstChild.InnerText = score.ToString();
+                    }
+                }
             }
              
             doc.Save(XmlScoreFile);

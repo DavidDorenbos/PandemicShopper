@@ -191,7 +191,7 @@ namespace PandemicShoppingGame.GameStates
                 }
 
                 _scoreManager.CalculateScore(player.health);
-                _scoreManager.getScore();
+                _scoreManager.GetScore();
 
                 level++;
                 _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, _scoreManager, level));
