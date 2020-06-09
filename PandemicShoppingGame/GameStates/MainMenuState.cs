@@ -16,10 +16,19 @@ namespace PandemicShoppingGame.GameStates
         private List<Component> _components;
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
+        private int level;
 
-        public MainMenuState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public MainMenuState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content,int level)
           : base(game, graphicsDevice, content)
         {
+            if (level == 0)
+            {
+                this.level = 1;
+            }
+            else
+            {
+                this.level = level;
+            }
             var buttonTexture = _content.Load<Texture2D>("Buttons/Button");
             var startButtonTexture = _content.Load<Texture2D>("Buttons/Start");
             var levelsButtonTexture = _content.Load<Texture2D>("Buttons/Levels");
@@ -70,17 +79,17 @@ namespace PandemicShoppingGame.GameStates
 
         private void StartGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level));
         }
 
         private void LevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new LevelSelectionState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new LevelSelectionState(_game, _graphicsDevice, _content, level));
         }
 
         private void OptionButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new OptionsGameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new OptionsGameState(_game, _graphicsDevice, _content, level));
         }
 
         private void QuitGameButton_Click(object sender, EventArgs e)

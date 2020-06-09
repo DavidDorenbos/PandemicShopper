@@ -38,7 +38,7 @@ namespace PandemicShoppingGame.Scores
             scoreNode.InnerText = score.ToString();
             if(levelNode == null)
             {
-                XmlNode node = doc.CreateElement("Level" + level.ToString());
+                XmlElement node = doc.CreateElement("Level" + level.ToString());
                 node.AppendChild(scoreNode);
             }
             else

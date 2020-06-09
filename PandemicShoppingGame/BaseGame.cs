@@ -66,7 +66,7 @@ namespace PandemicShoppingGame
             //  MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
-            _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content);
+            _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content, 0);
         }
 
         /// <summary>

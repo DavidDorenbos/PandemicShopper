@@ -46,12 +46,12 @@ namespace PandemicShoppingGame.GameStates
         public int score = 0;
         public int level;
 
-        public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
         {
             font  = _content.Load<SpriteFont>("Fonts/Standard");
 
-            level = 1;
+            this.level = level;
             _scoreManager = new ScoreManager(level, score);
 
             //Initialize all used variables
@@ -193,13 +193,14 @@ namespace PandemicShoppingGame.GameStates
                 _scoreManager.CalculateScore(player.health);
                 _scoreManager.getScore();
 
-                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, _scoreManager));
+                level++;
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, _scoreManager, level));
             }
 
             //Game Lost
             if (player.health == 0)
             {
-                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, _scoreManager));
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, _scoreManager, level));
             }
         }
 
@@ -221,8 +222,13 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.DrawString(font, "Health: " + player.health, new Vector2(20, 20), Color.Black);
             player.Draw(spriteBatch);
 
-            //Draw Health
+            //Draw Score
             spriteBatch.DrawString(font, "Score: " + score, new Vector2(200, 20), Color.Black);
+            player.Draw(spriteBatch);
+
+
+            //Draw Level
+            spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth/2, 20), Color.Black);
             player.Draw(spriteBatch);
 
             //Draw Cashier

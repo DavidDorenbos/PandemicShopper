@@ -2,9 +2,33 @@
 <BaseGame>
   <Level1>
     <Score>100</Score>
+    <Score>100</Score>
+    <Score>80</Score>
+    <Score>100</Score>
   </Level1>
   <Level2>
     <score>
     </score>
+    <Score>200</Score>
   </Level2>
+  <Level3>
+    <Score>204</Score>
+    <Score>300</Score>
+    <Score>300</Score>
+    <Score>300</Score>
+  </Level3>
+  <Level4>
+  </Level4>
+  <Level5>
+  </Level5>
+  <Level6>
+  </Level6>
+  <Level7>
+  </Level7>
+  <Level8>
+  </Level8>
+  <Level9>
+  </Level9>
+  <Level10>
+  </Level10>
 </BaseGame>

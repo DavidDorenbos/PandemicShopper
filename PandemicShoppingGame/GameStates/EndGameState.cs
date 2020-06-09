@@ -21,10 +21,20 @@ namespace PandemicShoppingGame.GameStates
 
         private Texture2D scoreTexture;
         private Vector2 scorePosition;
+        private int level;
 
-        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager)
+        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager, int level)
           : base(game, graphicsDevice, content)
         {
+            if (level == 0)
+            {
+                this.level = 1;
+            }
+            else
+            {
+                this.level = level;
+            }
+            
             var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");
             var nextLevelsButtonTexture = _content.Load<Texture2D>("Buttons/Next");
             var mainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
@@ -77,17 +87,18 @@ namespace PandemicShoppingGame.GameStates
 
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            int previouslevel = level -= 1;
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, previouslevel));
         }
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level));
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

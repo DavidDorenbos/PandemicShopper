@@ -18,11 +18,14 @@ namespace PandemicShoppingGame.GameStates
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
 
+        private int level;
+
         private SpriteFont font;
 
-        public LevelSelectionState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public LevelSelectionState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
         {
+            this.level = level;
             font = _content.Load<SpriteFont>("Fonts/Standard");
 
             var backButtonTexture = _content.Load<Texture2D>("Buttons/Back");
@@ -46,7 +49,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
         }
 
         public override void Initialize()
