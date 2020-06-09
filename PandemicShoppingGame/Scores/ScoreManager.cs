@@ -11,12 +11,17 @@ namespace PandemicShoppingGame.Scores
 {
     public class ScoreManager
     {
-        private int level;
         private int score = 0;
 
-        public ScoreManager (int level)
+        private int level;
+        private int health;
+        private int time;
+
+        public ScoreManager (int level, int health, int time)
         {
             this.level = level;
+            this.health = health;
+            this.time = time;
         }
 
         public int GetScore()
@@ -24,11 +29,9 @@ namespace PandemicShoppingGame.Scores
             return score;
         }
 
-        public void CalculateScore (int health, long time)
+        public void CalculateScore ()
         {
-            int timeScore = level * unchecked((int)time);
-            score = timeScore;
-
+            score = level * time;
             String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
 
             XmlDocument doc = new XmlDocument();
