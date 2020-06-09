@@ -20,9 +20,9 @@ namespace PandemicShoppingGame.Scores
             this.score = score;
         }
 
-        public void getScore()
+        public int getScore()
         {
-            Console.WriteLine(score);
+            return score;
         }
 
         public void CalculateScore (int health)

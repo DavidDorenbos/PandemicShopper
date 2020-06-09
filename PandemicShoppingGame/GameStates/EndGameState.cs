@@ -21,7 +21,11 @@ namespace PandemicShoppingGame.GameStates
 
         private Texture2D scoreTexture;
         private Vector2 scorePosition;
+
+        private Texture2D[] numbertextures = new Texture2D[10];
+
         private int level;
+        private int score;
 
         public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, ScoreManager _scoreManager, int level)
           : base(game, graphicsDevice, content)
@@ -35,6 +39,13 @@ namespace PandemicShoppingGame.GameStates
                 this.level = level;
             }
             
+            for(int i = 0; i <10; i++)
+            {
+                numbertextures[i] = _content.Load<Texture2D>("Numbers/" + i.ToString());
+            }
+
+            score = _scoreManager.getScore();
+
             var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");
             var nextLevelsButtonTexture = _content.Load<Texture2D>("Buttons/Next");
             var mainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
@@ -83,6 +94,8 @@ namespace PandemicShoppingGame.GameStates
                 mainMenuButton,
                 exitButton,
               };
+
+            
         }
 
         private void RestartGameButton_Click(object sender, EventArgs e)
@@ -144,10 +157,35 @@ namespace PandemicShoppingGame.GameStates
 
             spriteBatch.Begin();
 
+            int[] array = GetIntArray(score);
+            int x = 1350;
+            for (int i =0; i< array.Length; i++)
+            {
+                spriteBatch.Draw(numbertextures[array[i]], new Vector2(x, 250), Color.White);
+                x += 40;
+            }
+
+            spriteBatch.End();
+
+
+            spriteBatch.Begin();
+
             foreach (var component in _components)
                 component.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
+        }
+
+        private int[] GetIntArray(int num)
+        {
+            List<int> listOfInts = new List<int>();
+            while (num > 0)
+            {
+                listOfInts.Add(num % 10);
+                num = num / 10;
+            }
+            listOfInts.Reverse();
+            return listOfInts.ToArray();
         }
     }
 }

@@ -66,7 +66,8 @@ namespace PandemicShoppingGame
             //  MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
-            _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content, 0);
+
+            _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content, nextLevel());
         }
 
         /// <summary>
@@ -127,6 +128,21 @@ namespace PandemicShoppingGame
             // 0.0f is silent, 1.0f is full volume
             MediaPlayer.Volume -= 0.1f;
             MediaPlayer.Play(song);
+        }
+
+        private int nextLevel()
+        {
+            String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(XmlScoreFile);
+            for(int i = 1; i < 100; i++)
+            {
+                if(!doc.GetElementsByTagName("Level" + i)[0].HasChildNodes)
+                {
+                    return i;
+                } 
+            }
+            return 1;
         }
     }
 }
