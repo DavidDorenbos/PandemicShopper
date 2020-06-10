@@ -159,3 +159,4 @@ C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicSho
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Titles\ScoreTitle.xnb
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Next.xnb
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Restart.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\LevelSelectionItem.xnb

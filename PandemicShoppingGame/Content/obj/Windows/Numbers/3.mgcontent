@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Numbers/3.png</SourceFile>
-  <SourceTime>2020-06-08T22:37:51.2381237+02:00</SourceTime>
+  <SourceTime>2020-06-09T16:43:39.8111633+02:00</SourceTime>
   <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Numbers/3.xnb</DestFile>
-  <DestTime>2020-06-08T22:46:18.404934+02:00</DestTime>
+  <DestTime>2020-06-10T23:04:15.6777908+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
