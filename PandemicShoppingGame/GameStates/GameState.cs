@@ -85,7 +85,7 @@ namespace PandemicShoppingGame.GameStates
 
             if (File.Exists(levelDoc))
             {
-                xDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml");
+                xDoc.Load(levelDoc);
 
                 //Load Shelves
                 XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
@@ -201,6 +201,7 @@ namespace PandemicShoppingGame.GameStates
                 int timeScore =  unchecked((int)time);
 
                 scoreManager = new ScoreManager(level, player.health, timeScore);
+
                 //Game Won
                 if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player))
                 {
