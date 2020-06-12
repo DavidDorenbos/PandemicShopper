@@ -102,7 +102,6 @@ E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\Pande
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\SharpDX.XInput.xml
-E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\obj\x86\Debug\PandemicShoppingGame.csprojAssemblyReference.cache
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\obj\x86\Debug\PandemicShoppingGame.csproj.CoreCompileInputs.cache
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\obj\x86\Debug\PandemicShoppingGame.csproj.CopyComplete
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\obj\x86\Debug\PandemicShoppingGame.exe
@@ -160,3 +159,4 @@ C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicSho
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Next.xnb
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Restart.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\LevelSelectionItem.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\obj\x86\Debug\PandemicShoppingGame.csprojAssemblyReference.cache

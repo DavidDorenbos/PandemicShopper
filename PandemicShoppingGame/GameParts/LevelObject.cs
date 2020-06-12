@@ -24,12 +24,6 @@ namespace PandemicShoppingGame.GameParts
             this.texture = texture;
         }
 
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, Position, Color.White);
-        }
-
         public bool IsTouchingLeft(Player player)
         {
             return this.texture.Width + this.x > player.Position.X + (player.texture.Width / 2f) &&
@@ -60,6 +54,11 @@ namespace PandemicShoppingGame.GameParts
               texture.Height + y > player.Position.Y - (player.texture.Height / 2f) &&
               x + texture.Width > player.Position.X - (player.texture.Width / 2f) &&
               x < player.Position.X + (player.texture.Width / 2f);
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, Position, Color.White);
         }
     }
 }
