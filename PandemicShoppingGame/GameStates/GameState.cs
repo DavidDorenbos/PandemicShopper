@@ -200,7 +200,7 @@ namespace PandemicShoppingGame.GameStates
 
                 int timeScore =  unchecked((int)time);
 
-                scoreManager = new ScoreManager(level, player.health, timeScore);
+                scoreManager = new ScoreManager(level, player.health, timeScore, player.inventory, shoppingList);
 
                 //Game Won
                 if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player))

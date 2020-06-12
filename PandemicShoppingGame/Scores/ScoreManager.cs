@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PandemicShoppingGame.GameParts;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,16 @@ namespace PandemicShoppingGame.Scores
         private int level;
         private int health;
         private int time;
+        private List<Product> inventory = new List<Product>();
+        private List<Product> shopList = new List<Product>();
 
-        public ScoreManager (int level, int health, int time)
+        public ScoreManager (int level, int health, int time, List<Product> inventory, List<Product> shopList )
         {
             this.level = level;
             this.health = health;
             this.time = time;
+            this.inventory = inventory;
+            this.shopList = shopList;
         }
 
         public int GetScore()
@@ -31,7 +36,52 @@ namespace PandemicShoppingGame.Scores
 
         public void CalculateScore ()
         {
-            score = level * time;
+            Dictionary<string,int> inventoryList = new Dictionary<string, int>();
+            foreach(Product p in inventory)
+            {
+                if (inventoryList.ContainsKey(p.name))
+                {
+                    inventoryList[p.name]++;
+                }
+                else
+                {
+                    inventoryList.Add(p.name, 1);
+                }
+            }
+
+            foreach (Product p in shopList)
+            {
+                if (inventoryList.ContainsKey(p.name))
+                {
+                    if(inventoryList[p.name] == 1)
+                    {
+                        inventoryList.Remove(p.name);
+                    }
+                    else
+                    {
+                        inventoryList[p.name]--;
+                    }
+                }
+                else
+                {
+                    if (inventoryList.ContainsKey("missing"))
+                    {
+                        inventoryList["missing"]++;
+                    }
+                    else
+                    {
+                        inventoryList.Add("missing", 1);
+                    }
+                    
+                }
+            }
+            
+            int sum = inventoryList.Sum(x => x.Value);
+            if(sum == 0)
+            {
+                sum = 1;
+            }
+            score = (health*10) - (time * 10)  - (sum * 100);
             String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
 
             XmlDocument doc = new XmlDocument();
