@@ -22,6 +22,8 @@ namespace PandemicShoppingGame.GameParts
         public KeyboardState oldState;
         public int health;
 
+        private int healthDecreaseDelay = 0;
+
         public Player(int x, int y, Texture2D texture)
         {
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
@@ -35,6 +37,7 @@ namespace PandemicShoppingGame.GameParts
         {
             Move();
 
+            // Picking up items when near en pressing e
             newState = Keyboard.GetState();
             if (newState.IsKeyUp(Keys.E) && oldState.IsKeyDown(Keys.E))
             {
@@ -48,13 +51,21 @@ namespace PandemicShoppingGame.GameParts
             }
             oldState = newState;
 
-            foreach(Enemy enemy in enemies)
+            //Decreasing health when standing too close to enemies
+            if (healthDecreaseDelay == 4)
             {
-                if (enemy.isClose(this) && health > 0)
+                foreach (Enemy enemy in enemies)
                 {
-                    this.health -= 1;
+                    if (enemy.isClose(this) && health > 0)
+                    {
+                        this.health -= 1;
+                    }
                 }
+                healthDecreaseDelay = 0;
             }
+           healthDecreaseDelay++;
+
+
 
             foreach (LevelObject obj in levelObjects)
             {

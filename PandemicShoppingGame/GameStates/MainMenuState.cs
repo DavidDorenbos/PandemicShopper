@@ -32,6 +32,7 @@ namespace PandemicShoppingGame.GameStates
             var buttonTexture = _content.Load<Texture2D>("Buttons/Button");
             var startButtonTexture = _content.Load<Texture2D>("Buttons/Start");
             var levelsButtonTexture = _content.Load<Texture2D>("Buttons/Levels");
+            var highscoreButtonTexture = _content.Load<Texture2D>("Buttons/Highscores");
             var optionButtonTexture = _content.Load<Texture2D>("Buttons/Options");
             var exitButtonTexture = _content.Load<Texture2D>("Buttons/Exit");
 
@@ -42,21 +43,28 @@ namespace PandemicShoppingGame.GameStates
 
             var startGameButton = new Button(startButtonTexture, buttonFont)
             {
-                Position = new Vector2(735, 170),
+                Position = new Vector2(735, 150),
             };
 
             startGameButton.Click += StartGameButton_Click;
 
             var levelButton = new Button(levelsButtonTexture, buttonFont)
             {
-                Position = new Vector2(735, 376),
+                Position = new Vector2(735, 306),
             };
 
             levelButton.Click += LevelButton_Click;
 
+            var highscoreButton = new Button(highscoreButtonTexture, buttonFont)
+            {
+                Position = new Vector2(735, 466),
+            };
+
+            highscoreButton.Click += HighscoreButton_Click;
+
             var optionButton = new Button(optionButtonTexture, buttonFont)
             {
-                Position = new Vector2(735, 582),
+                Position = new Vector2(735, 622),
             };
 
             optionButton.Click += OptionButton_Click;
@@ -72,6 +80,7 @@ namespace PandemicShoppingGame.GameStates
               {
                 startGameButton,
                 levelButton,
+                highscoreButton,
                 optionButton,
                 exitGameButton,
               };
@@ -85,6 +94,11 @@ namespace PandemicShoppingGame.GameStates
         private void LevelButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new LevelSelectionState(_game, _graphicsDevice, _content, level));
+        }
+
+        private void HighscoreButton_Click(object sender, EventArgs e)
+        {
+            //_game.ChangeState(new ScoreState(_game, _graphicsDevice, _content, level));
         }
 
         private void OptionButton_Click(object sender, EventArgs e)

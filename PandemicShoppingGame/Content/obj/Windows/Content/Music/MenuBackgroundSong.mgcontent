@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Music/MenuBackgroundSong.mp3</SourceFile>
-  <SourceTime>2020-06-09T22:30:32.6677186+02:00</SourceTime>
-  <DestFile>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/bin/Windows/Content/Music/MenuBackgroundSong.xnb</DestFile>
-  <DestTime>2020-06-12T15:16:56.1201015+02:00</DestTime>
+  <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Music/MenuBackgroundSong.mp3</SourceFile>
+  <SourceTime>2020-06-08T19:54:45.3511577+02:00</SourceTime>
+  <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Content/Music/MenuBackgroundSong.xnb</DestFile>
+  <DestTime>2020-06-15T13:55:18.2489164+02:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/bin/Windows/Content/Music/MenuBackgroundSong.wma</string>
+    <string>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Content/Music/MenuBackgroundSong.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>
