@@ -98,7 +98,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void HighscoreButton_Click(object sender, EventArgs e)
         {
-            //_game.ChangeState(new ScoreState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new ScoreState(_game, _graphicsDevice, _content, level));
         }
 
         private void OptionButton_Click(object sender, EventArgs e)
