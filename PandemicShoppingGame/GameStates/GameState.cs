@@ -107,7 +107,7 @@ namespace PandemicShoppingGame.GameStates
 
                 //Init Player
                 XmlNodeList playerEl = xDoc.GetElementsByTagName("Player");
-                player = new Player(Int32.Parse(playerEl[0].FirstChild.InnerText), Int32.Parse(playerEl[0].LastChild.InnerText), texture);
+                player = new Player(Int32.Parse(playerEl[0].FirstChild.InnerText), Int32.Parse(playerEl[0].LastChild.InnerText), texture, _content);
 
                 //Init products in world
                 XmlNodeList productsinWorld = xDoc.GetElementsByTagName("WorldProduct");

@@ -181,6 +181,18 @@
 /processorParam:TextureFormat=Color
 /build:cashier.png
 
+#begin Effects/scream.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Effects/scream.wav
+
+#begin Effects/slurp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Effects/slurp.wav
+
 #begin enemy.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -199,6 +211,12 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Standard.spritefont
+
+#begin Music/anderhalvemeter.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/anderhalvemeter.mp3
 
 #begin Music/MenuBackgroundSong.mp3
 /importer:Mp3Importer
@@ -433,6 +451,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:singolive.png
+
+#begin SoundEffects/scream.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/scream.ogg
+
+#begin SoundEffects/slurp.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/slurp.ogg
 
 #begin tile.png
 /importer:TextureImporter

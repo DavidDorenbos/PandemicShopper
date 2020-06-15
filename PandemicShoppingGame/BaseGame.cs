@@ -59,7 +59,7 @@ namespace PandemicShoppingGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            song = Content.Load<Song>("Music/MenuBackgroundSong");
+            song = Content.Load<Song>("Music/anderhalvemeter");
             MediaPlayer.Play(song);
             MediaPlayer.Volume = 0.5f;
             //  Uncomment the following line will also loop the song

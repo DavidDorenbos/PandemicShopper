@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -20,17 +22,24 @@ namespace PandemicShoppingGame.GameParts
         public List<Product> inventory = new List<Product>();
         public KeyboardState newState;
         public KeyboardState oldState;
+
+        private SoundEffect slurp;
+        private SoundEffect scream;
+
         public int health;
 
         private int healthDecreaseDelay = 0;
 
-        public Player(int x, int y, Texture2D texture)
+        public Player(int x, int y, Texture2D texture, ContentManager content)
         {
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
             this.Position.X = x;
             this.Position.Y = y;
             this.texture = texture;
             this.health = 100;
+
+            slurp = content.Load<SoundEffect>("Effects/slurp");
+            scream = content.Load<SoundEffect>("Effects/scream");
         }
 
         public void Update(GameTime gameTime, List<LevelObject> levelObjects, List<Product> productList, List<Enemy> enemies)
@@ -46,6 +55,7 @@ namespace PandemicShoppingGame.GameParts
                     if (prod.isClose(this) && !inventory.Contains(prod))
                     {
                         inventory.Add(prod);
+                        slurp.Play();
                     }
                 }
             }
@@ -59,6 +69,7 @@ namespace PandemicShoppingGame.GameParts
                     if (enemy.isClose(this) && health > 0)
                     {
                         this.health -= 1;
+                        scream.Play();
                     }
                 }
                 healthDecreaseDelay = 0;
