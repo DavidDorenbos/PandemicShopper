@@ -17,6 +17,8 @@
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Buttons/Options.png</File>
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Buttons/Restart.png</File>
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Buttons/Start.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Buttons/volDown.png</File>
+    <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Buttons/volUp.png</File>
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/cashier.png</File>
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Effects/scream.wav</File>
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Effects/slurp.wav</File>
@@ -51,6 +53,8 @@
     <File>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Titles/ScoreTitle.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

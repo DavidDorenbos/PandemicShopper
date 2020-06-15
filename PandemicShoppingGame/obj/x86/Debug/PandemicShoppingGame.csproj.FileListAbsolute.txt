@@ -171,3 +171,5 @@ C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicSho
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\SoundEffects\slurp.xnb
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Effects\scream.xnb
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Effects\slurp.xnb
+C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\volDown.xnb
+C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\volUp.xnb

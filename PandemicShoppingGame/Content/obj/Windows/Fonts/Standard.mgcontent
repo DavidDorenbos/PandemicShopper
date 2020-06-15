@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Fonts/Standard.spritefont</SourceFile>
-  <SourceTime>2020-06-08T19:54:44.9955958+02:00</SourceTime>
-  <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Fonts/Standard.xnb</DestFile>
-  <DestTime>2020-06-08T21:34:41.2072019+02:00</DestTime>
+  <SourceFile>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Fonts/Standard.spritefont</SourceFile>
+  <SourceTime>2020-06-09T22:30:32.2218803+02:00</SourceTime>
+  <DestFile>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/bin/Windows/Fonts/Standard.xnb</DestFile>
+  <DestTime>2020-06-15T23:32:37.4409442+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
