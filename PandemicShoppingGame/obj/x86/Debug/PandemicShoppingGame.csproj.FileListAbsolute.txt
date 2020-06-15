@@ -162,3 +162,5 @@ E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\Pande
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\obj\x86\Debug\PandemicShoppingGame.csprojAssemblyReference.cache
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\LevelSelectionItem.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Highscores.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Music\anderhalvemeter.wma
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Music\anderhalvemeter.xnb

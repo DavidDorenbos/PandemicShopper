@@ -200,6 +200,12 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Standard.spritefont
 
+#begin Music/anderhalvemeter.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/anderhalvemeter.mp3
+
 #begin Music/MenuBackgroundSong.mp3
 /importer:Mp3Importer
 /processor:SongProcessor

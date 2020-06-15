@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using System.Xml;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PandemicShoppingGame.GameParts;
@@ -18,6 +19,7 @@ namespace PandemicShoppingGame.GameStates
     public class GameState : State
     {
         public SpriteFont font;
+        private SoundEffect effect;
 
         public Player player;
         public LevelObject cashier;
@@ -66,6 +68,8 @@ namespace PandemicShoppingGame.GameStates
             textureShopList = _content.Load<Texture2D>("shoplist");
 
             background = _content.Load<Texture2D>("tile");
+
+            //effect = _content.Load<SoundEffect>("effect");
 
             textureShelf = _content.Load<Texture2D>("shelf");
             textureShelfVertical = _content.Load<Texture2D>("shelfVertical");
