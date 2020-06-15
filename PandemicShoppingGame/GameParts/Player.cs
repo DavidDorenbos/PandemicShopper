@@ -59,7 +59,6 @@ namespace PandemicShoppingGame.GameParts
                         if (prod.GetName() == "mask")
                         {
                             armor += 25;
-                            inventory.Add(prod);
                             slurp.Play();
                         }
                         else
@@ -77,7 +76,12 @@ namespace PandemicShoppingGame.GameParts
             {
                 foreach (Enemy enemy in enemies)
                 {
-                    if (enemy.isClose(this) && health > 0)
+                    if (enemy.isClose(this) && armor > 0)
+                    {
+                        this.armor -= 1;
+                        scream.Play();
+                    }
+                    else if (enemy.isClose(this) && health > 0)
                     {
                         this.health -= 1;
                         scream.Play();
@@ -85,7 +89,7 @@ namespace PandemicShoppingGame.GameParts
                 }
                 healthDecreaseDelay = 0;
             }
-           healthDecreaseDelay++;
+            healthDecreaseDelay++;
 
 
 
