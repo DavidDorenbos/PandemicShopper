@@ -25,11 +25,14 @@ namespace PandemicShoppingGame.GameStates
         public Texture2D textureShopList;
         public Texture2D textureBag;
         public Texture2D background;
+
         public Texture2D textureShelf;
         public Texture2D textureShelfVertical;
+
         public Texture2D textureCashier;
         public Texture2D textureEnemy;
         public Texture2D texture;
+        private Texture2D maskTexture;
 
         private Texture2D singMilkTexture;
         private Texture2D singBreadTexture;
@@ -69,9 +72,11 @@ namespace PandemicShoppingGame.GameStates
 
             textureShelf = _content.Load<Texture2D>("shelf");
             textureShelfVertical = _content.Load<Texture2D>("shelfVertical");
+
             textureCashier = _content.Load<Texture2D>("cashier");
             textureEnemy = _content.Load<Texture2D>("enemy");
             texture = _content.Load<Texture2D>("player1");
+            maskTexture = _content.Load<Texture2D>("mask");
 
             singMilkTexture = _content.Load<Texture2D>("singmilk");
             singBreadTexture = _content.Load<Texture2D>("singBread");
@@ -129,6 +134,10 @@ namespace PandemicShoppingGame.GameStates
                     else if (productsinWorld[i].FirstChild.InnerText == "SingOlive")
                     {
                         prod.texture = singOliveTexture;
+                    }
+                    else if (productsinWorld[i].FirstChild.InnerText == "mask")
+                    {
+                        prod.texture = maskTexture;
                     }
                     productList.Add(prod);
                 }

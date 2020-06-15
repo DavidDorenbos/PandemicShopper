@@ -18,6 +18,8 @@ namespace PandemicShoppingGame.GameStates
         private List<Component> _components;
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
+        private Texture2D gameLostTitle;
+        private Vector2 gameLostTitlePosition;
 
         private SpriteFont font;
 
@@ -32,8 +34,20 @@ namespace PandemicShoppingGame.GameStates
             var MainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
 
+            var restartButtonTexture = _content.Load<Texture2D>("Buttons/Restart");
+
             backgroundTexture = _content.Load<Texture2D>("Backgrounds/MainMenuBackground");
             backgroundPosition = new Vector2(0, 0);
+
+            gameLostTitle = _content.Load<Texture2D>("Titles/GameOverTitle");
+            gameLostTitlePosition = new Vector2(765, 190);
+
+            var restartGameButton = new Button(restartButtonTexture, buttonFont)
+            {
+                Position = new Vector2(735, 260),
+            };
+
+            restartGameButton.Click += RestartGameButton_Click;
 
             var backButton = new Button(MainMenuButtonTexture, buttonFont)
             {
@@ -44,8 +58,15 @@ namespace PandemicShoppingGame.GameStates
 
             _components = new List<Component>()
               {
+                restartGameButton,
                 backButton,
               };
+        }
+
+        private void RestartGameButton_Click(object sender, EventArgs e)
+        {
+            int previouslevel = level -= 1;
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, previouslevel));
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -83,6 +104,10 @@ namespace PandemicShoppingGame.GameStates
         {
             spriteBatch.Begin();
             spriteBatch.Draw(backgroundTexture, backgroundPosition, Color.White);
+            spriteBatch.End();
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(gameLostTitle, gameLostTitlePosition, Color.White);
             spriteBatch.End();
 
             spriteBatch.Begin();

@@ -140,6 +140,11 @@
       <Xcoord>800</Xcoord>
       <Ycoord>400</Ycoord>
     </WorldProduct>
+    <WorldProduct>
+      <Name>mask</Name>
+      <Xcoord>1300</Xcoord>
+      <Ycoord>600</Ycoord>
+    </WorldProduct>
   </WorldProducts>
   <ShoppingListProducts>
     <ShoppingListProduct>

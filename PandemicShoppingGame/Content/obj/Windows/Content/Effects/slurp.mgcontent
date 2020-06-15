@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Effects/slurp.wav</SourceFile>
-  <SourceTime>2020-06-15T15:28:58.5719995+02:00</SourceTime>
+  <SourceTime>2020-06-15T15:35:15.9552101+02:00</SourceTime>
   <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Content/Effects/slurp.xnb</DestFile>
-  <DestTime>2020-06-15T15:29:33.0140399+02:00</DestTime>
+  <DestTime>2020-06-15T15:35:23.360701+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

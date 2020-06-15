@@ -163,3 +163,12 @@ E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\Pande
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\LevelSelectionItem.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Highscores.xnb
 C:\Users\david\OneDrive\Bureaublad\PandemicShoppingGame\PandemicShop\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Buttons\Highscores.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\SoundEffects\scream.wma
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\SoundEffects\scream.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\SoundEffects\slurp.wma
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\SoundEffects\slurp.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Effects\scream.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Effects\slurp.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Music\anderhalvemeter.wma
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\Music\anderhalvemeter.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Debug\Content\mask.xnb

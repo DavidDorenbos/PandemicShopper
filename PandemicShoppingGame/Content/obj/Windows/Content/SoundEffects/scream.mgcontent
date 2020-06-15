@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/SoundEffects/scream.ogg</SourceFile>
-  <SourceTime>2020-06-15T15:19:44.2379514+02:00</SourceTime>
+  <SourceTime>2020-06-15T15:35:15.9852151+02:00</SourceTime>
   <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Content/SoundEffects/scream.xnb</DestFile>
-  <DestTime>2020-06-15T15:24:49.0255413+02:00</DestTime>
+  <DestTime>2020-06-15T15:35:24.8574659+02:00</DestTime>
   <Importer>OggImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SongProcessor</Processor>
