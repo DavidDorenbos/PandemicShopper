@@ -81,7 +81,8 @@ namespace PandemicShoppingGame.Scores
             {
                 sum = 1;
             }
-            score = (health*10) - (time * 10)  - (sum * 100);
+
+            score = (1000 + (health * (10 * level))) - (time * (10 * level))  - (sum * 25);
             String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
 
             XmlDocument doc = new XmlDocument();
