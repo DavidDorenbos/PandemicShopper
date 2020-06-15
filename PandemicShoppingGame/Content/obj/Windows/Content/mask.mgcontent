@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/mask.png</SourceFile>
-  <SourceTime>2020-06-15T23:44:01.7095708+02:00</SourceTime>
+  <SourceTime>2020-06-16T01:06:19.2732781+02:00</SourceTime>
   <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Content/mask.xnb</DestFile>
-  <DestTime>2020-06-16T00:05:05.3273964+02:00</DestTime>
+  <DestTime>2020-06-16T01:06:42.997372+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

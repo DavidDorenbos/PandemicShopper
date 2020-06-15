@@ -45,5 +45,10 @@ namespace PandemicShoppingGame.GameParts
             }
         }
 
+        public String GetName()
+        {
+            return name;
+        }
+
     }
 }

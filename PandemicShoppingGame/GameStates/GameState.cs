@@ -261,7 +261,7 @@ namespace PandemicShoppingGame.GameStates
                 spriteBatch.Begin();
 
                 //Draw Health
-                spriteBatch.DrawString(font, "Health: " + player.health, new Vector2(20, 20), Color.Black);
+                spriteBatch.DrawString(font, "Health: " + player.health + " + " + player.armor, new Vector2(20, 20), Color.Black);
                 player.Draw(spriteBatch);
 
                 //Draw Score

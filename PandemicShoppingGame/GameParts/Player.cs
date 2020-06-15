@@ -27,6 +27,7 @@ namespace PandemicShoppingGame.GameParts
         private SoundEffect scream;
 
         public int health;
+        public int armor;
 
         private int healthDecreaseDelay = 0;
 
@@ -37,6 +38,7 @@ namespace PandemicShoppingGame.GameParts
             this.Position.Y = y;
             this.texture = texture;
             this.health = 100;
+            this.armor = 0;
 
             slurp = content.Load<SoundEffect>("Effects/slurp");
             scream = content.Load<SoundEffect>("Effects/scream");
@@ -54,8 +56,17 @@ namespace PandemicShoppingGame.GameParts
                 {
                     if (prod.isClose(this) && !inventory.Contains(prod))
                     {
-                        inventory.Add(prod);
-                        slurp.Play();
+                        if (prod.GetName() == "mask")
+                        {
+                            armor += 25;
+                            inventory.Add(prod);
+                            slurp.Play();
+                        }
+                        else
+                        {
+                            inventory.Add(prod);
+                            slurp.Play();
+                        }
                     }
                 }
             }
