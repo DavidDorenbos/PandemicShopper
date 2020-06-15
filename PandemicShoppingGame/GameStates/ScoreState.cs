@@ -19,10 +19,7 @@ namespace PandemicShoppingGame.GameStates
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
 
-        private Vector2 scorePosition;
         public SpriteFont font;
-
-        private Texture2D[] numbertextures = new Texture2D[10];
 
         private int level;
 
@@ -38,11 +35,6 @@ namespace PandemicShoppingGame.GameStates
             else
             {
                 this.level = level;
-            }
-            
-            for(int i = 0; i <10; i++)
-            {
-                numbertextures[i] = _content.Load<Texture2D>("Numbers/" + i.ToString());
             }
 
 
