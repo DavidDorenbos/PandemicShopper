@@ -61,7 +61,7 @@ namespace PandemicShoppingGame
 
             song = Content.Load<Song>("Music/anderhalvemeter");
             MediaPlayer.Play(song);
-            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Volume = 0.2f;
             //  Uncomment the following line will also loop the song
             //  MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
@@ -86,16 +86,6 @@ namespace PandemicShoppingGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.F1))
-            {
-                MediaPlayer.Volume += 0.1f;
-            }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.F2))
-            {
-                MediaPlayer.Volume -= 0.1f;
-            }
-
             if (_nextState != null)
             {
                 _currentState = _nextState;
