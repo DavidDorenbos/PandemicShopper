@@ -20,7 +20,7 @@ namespace PandemicShoppingGame.Scores
         private List<Product> inventory = new List<Product>();
         private List<Product> shopList = new List<Product>();
 
-        public ScoreManager (int level, int health, int time, List<Product> inventory, List<Product> shopList )
+        public ScoreManager (int level, int health, int time, List<Product> inventory, List<Product> shopList)
         {
             this.level = level;
             this.health = health;
@@ -83,39 +83,9 @@ namespace PandemicShoppingGame.Scores
             }
 
             score = (1000 + (health * (10 * level))) - (time * (10 * level))  - (sum * 25);
-            String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(XmlScoreFile);
-            XmlElement levelNode = doc.DocumentElement["Level" + level.ToString()];
-            XmlElement scoreNode = doc.CreateElement("Score");
-            scoreNode.InnerText = score.ToString();
-            if(levelNode == null)
-            {
-                XmlElement node = doc.CreateElement("Level" + level.ToString());
-                node.AppendChild(scoreNode);
-            }
-            else
-            {
-                if (levelNode.FirstChild == null)
-                {
-                    levelNode.AppendChild(scoreNode);
-                }
-                else
-                {
-                    int highScoreEl = Int32.Parse(levelNode.FirstChild.InnerText);
-
-                    if (score > highScoreEl)
-                    {
-                        levelNode.FirstChild.InnerText = score.ToString();
-                    }
-                }
-            }
-             
-            doc.Save(XmlScoreFile);
         }
 
-        private void SaveScore(int level, int score)
+        public void SaveScore(int level)
         {
             String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
 

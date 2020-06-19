@@ -77,6 +77,12 @@ namespace PandemicShoppingGame.GameStates
             }
 
             levelManager.player.Move();
+
+            DetectShelfColision();
+            PickUpProducts();
+            UpdatePlayerHealth();
+            CheckPlayerDied();
+            DetectLevelFinished();
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -148,6 +154,46 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.Draw(levelManager.player.texture, levelManager.player.position, null, Color.White, levelManager.player.angle, levelManager.player.origin, 1, SpriteEffects.None, 0f);
 
             spriteBatch.End();
+        }
+
+        private void DetectShelfColision()
+        {
+
+        }
+
+        private void PickUpProducts()
+        {
+
+        }
+
+        private void UpdatePlayerHealth()
+        {
+
+        }
+
+        private void CheckPlayerDied()
+        {
+            if(levelManager.player.health == 0)
+            {
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content));
+            }
+        }
+
+        private void DetectLevelFinished()
+        {
+            if (levelManager.cashier.IsTouchingLeft(levelManager.player) || levelManager.cashier.IsTouchingTop(levelManager.player) || levelManager.cashier.IsTouchingRight(levelManager.player) || levelManager.cashier.IsTouchingBottom(levelManager.player))
+            {
+                stopwatch.Stop();
+                levelManager.player.speed = 0;
+                int timeScore = unchecked((int)time);
+
+                scoreManager = new ScoreManager(level, levelManager.player.health, timeScore, levelManager.player.inventory, levelManager.shopList);
+
+                scoreManager.CalculateScore();
+                scoreManager.SaveScore(level);
+
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, scoreManager.GetScore()));
+            }
         }
     }
 }

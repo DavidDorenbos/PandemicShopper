@@ -23,12 +23,9 @@ namespace PandemicShoppingGame.GameStates
 
         private SpriteFont font;
 
-        private int level;
-
-        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
+        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
-            this.level = level;
             font = _content.Load<SpriteFont>("Fonts/Standard");
 
             var MainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
@@ -65,7 +62,6 @@ namespace PandemicShoppingGame.GameStates
 
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
-            int previouslevel = level -= 1;
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
