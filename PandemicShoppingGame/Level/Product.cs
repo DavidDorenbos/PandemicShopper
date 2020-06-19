@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -11,31 +12,24 @@ namespace PandemicShoppingGame.Level
     public class Product
     {
         public string name;
-        private int x;
-        private int y;
         public Texture2D texture;
-        public Vector2 Position;
+        public Vector2 position;
 
-        public Product(String name, int x, int y, Texture2D texture)
+        public Product(ContentManager _content, String name, int x, int y)
         {
             this.name = name;
-            this.x = x;
-            this.y = y;
-            this.texture = texture;
-            Position = new Vector2(x, y);
+            this.texture = _content.Load<Texture2D>(name);
+            position = new Vector2(x, y);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, Position, Color.White);
-        }
+
 
         //Check if player is close to product
         public bool isClose(Player player)
         {
             float playerx = player.position.X;
             float playery = player.position.Y;
-            if(Math.Abs(playerx - x) < 100 && Math.Abs(playery - y) < 100)
+            if (Math.Abs(playerx - position.X) < 100 && Math.Abs(playery - position.Y) < 100)
             {
                 return true;
             }

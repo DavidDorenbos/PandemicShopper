@@ -136,7 +136,7 @@
       <Ycoord>400</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>SingOlive</Name>
+      <Name>singOlive</Name>
       <Xcoord>800</Xcoord>
       <Ycoord>400</Ycoord>
     </WorldProduct>
@@ -148,13 +148,13 @@
   </WorldProducts>
   <ShoppingListProducts>
     <ShoppingListProduct>
-      <Name>SingOlive</Name>
+      <Name>singOlive</Name>
     </ShoppingListProduct>
     <ShoppingListProduct>
-      <Name>SingOlive</Name>
+      <Name>singOlive</Name>
     </ShoppingListProduct>
     <ShoppingListProduct>
-      <Name>SingOlive</Name>
+      <Name>singOlive</Name>
     </ShoppingListProduct>
   </ShoppingListProducts>
   <Enemies>

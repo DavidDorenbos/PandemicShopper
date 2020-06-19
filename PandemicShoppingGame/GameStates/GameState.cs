@@ -99,12 +99,8 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
             spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth / 2, 20), Color.Black);
 
-            //Draw player and enemies
-            spriteBatch.Draw(levelManager.player.texture, levelManager.player.position, null, Color.White, levelManager.player.angle, levelManager.player.origin, 1, SpriteEffects.None, 0f);
-            for (int i = 0; i < levelManager.enemies.Count; i++)
-            {
-                spriteBatch.Draw(levelManager.enemies[i].texture, levelManager.enemies[i].position, Color.White);
-            }
+            //Draw cashier
+            spriteBatch.Draw(levelManager.cashier.texture, levelManager.cashier.position, Color.White);
 
             //Draw shelves
             for (int i = 0; i < levelManager.shelves.Count; i++)
@@ -112,11 +108,44 @@ namespace PandemicShoppingGame.GameStates
                 spriteBatch.Draw(levelManager.shelves[i].texture, levelManager.shelves[i].position, Color.White);
             }
 
+            //Draw worlditems
+            for (int i = 0; i < levelManager.productList.Count; i++)
+            {
+                spriteBatch.Draw(levelManager.productList[i].texture, levelManager.productList[i].position, Color.White);
+            }
+
             //Draw shoppinglist
             spriteBatch.Draw(shopListTexture, new Rectangle(20, 60, 40, 40), Color.White);
 
+            //Draw shoppinglist items
+            int xPositionShoplistItems = 70;
+            for (int i = 0; i < levelManager.shopList.Count; i++)
+            {
+                levelManager.shopList[i].position.X = xPositionShoplistItems;
+                spriteBatch.Draw(levelManager.shopList[i].texture, levelManager.shopList[i].position, Color.White);
+                //Alignment Shoppinglist items
+                xPositionShoplistItems += 20 + levelManager.shopList[i].texture.Width;
+            }
+
             //Draw inventory
             spriteBatch.Draw(bagTexture, new Rectangle(20, 120, 40, 40), Color.White);
+
+            //Draw inventoryproducts
+            int xPositionInventory = 130;
+            for (int i = 0; i < levelManager.player.inventory.Count; i++)
+            {
+                levelManager.player.inventory[i].position.X = xPositionShoplistItems;
+                spriteBatch.Draw(levelManager.player.inventory[i].texture, levelManager.player.inventory[i].position, Color.White);
+                //Alignment Shoppinglist items
+                xPositionInventory += 20 + levelManager.player.inventory[i].texture.Width;
+            }
+
+            //Draw player and enemies
+            for (int i = 0; i < levelManager.enemies.Count; i++)
+            {
+                spriteBatch.Draw(levelManager.enemies[i].texture, levelManager.enemies[i].position, Color.White);
+            }
+            spriteBatch.Draw(levelManager.player.texture, levelManager.player.position, null, Color.White, levelManager.player.angle, levelManager.player.origin, 1, SpriteEffects.None, 0f);
 
             spriteBatch.End();
         }

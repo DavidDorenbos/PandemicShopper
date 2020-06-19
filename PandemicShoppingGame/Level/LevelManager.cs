@@ -43,6 +43,7 @@ namespace PandemicShoppingGame.Level
                 LoadPawns(xDoc);
                 LoadShelves(xDoc);
                 LoadCashier(xDoc);
+                LoadProduct(xDoc);
             }
         }
 
@@ -80,7 +81,23 @@ namespace PandemicShoppingGame.Level
 
         private void LoadCashier(XmlDocument xDoc)
         {
+            XmlNodeList cashierEl = xDoc.GetElementsByTagName("Cashier");
+            cashier = new LevelObject(_content, Int32.Parse(cashierEl[0].FirstChild.InnerText), Int32.Parse(cashierEl[0].LastChild.InnerText), "cashier");
+        }
 
+        private void LoadProduct(XmlDocument xDoc)
+        {
+            XmlNodeList productsinWorld = xDoc.GetElementsByTagName("WorldProduct");
+            for(int i = 0; i < productsinWorld.Count; i++)
+            {
+                productList.Add(new Product(_content, productsinWorld[i].FirstChild.InnerText, Int32.Parse(productsinWorld[i].ChildNodes[1].InnerText), Int32.Parse(productsinWorld[i].ChildNodes[2].InnerText)));
+            }
+
+            XmlNodeList productsShoplist = xDoc.GetElementsByTagName("ShoppingListProduct");
+            for (int i = 0; i < productsShoplist.Count; i++)
+            {
+                shopList.Add(new Product(_content, productsShoplist[i].FirstChild.InnerText,0,70));
+            }
         }
     }
 }
