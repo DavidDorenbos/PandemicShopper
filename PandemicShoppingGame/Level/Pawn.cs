@@ -11,15 +11,15 @@ namespace PandemicShoppingGame.Level
 {
     public abstract class Pawn
     {
-        protected Texture2D texture;
-        protected Vector2 position { get; set; }
+        public Vector2 position;
+        public Texture2D texture;
+
         protected float speed;
         protected float angle;
 
-        public Pawn(Texture2D texture, Vector2 position, float speed, float angle)
+        public Pawn(int x, int y, float speed, float angle)
         {
-            this.texture = texture;
-            this.position = position;
+            this.position = new Vector2(x, y);
             this.speed = speed;
             this.angle = angle;
         }

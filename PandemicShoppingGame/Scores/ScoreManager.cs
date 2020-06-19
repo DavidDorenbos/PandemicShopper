@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using PandemicShoppingGame.GameParts;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PandemicShoppingGame.Level;
 using System.Xml;
 
 namespace PandemicShoppingGame.Scores

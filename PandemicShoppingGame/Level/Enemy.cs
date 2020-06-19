@@ -5,31 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using PandemicShoppingGame.Level;
 
-namespace PandemicShoppingGame.GameParts
+namespace PandemicShoppingGame.Level
 {
     public class Enemy : Pawn
     {
-        private int x;
-        private int y;
-        public Enemy(Texture2D texture, Vector2 position, float speed, float angle, int x, int y)
-            :base(texture, position, speed, angle)
+        public Enemy(ContentManager _content, int x, int y, float speed, float angle)
+            :base(x, y, speed, angle)
         {
-            this.x = x;
-            this.y = y;
-
-            this.texture = texture;
-            position = new Vector2(x, y);
+            this.texture = _content.Load<Texture2D>("enemy");
         }
 
         //Check if player is close to enemy
         public bool isClose(Player player)
         {
-            float playerx = player.
-            //float playery = player.position.Y;
-            if (Math.Abs(playerx - x) < 100 && Math.Abs(playery - y) < 100)
+            float playerx = player.position.X;
+            float playery = player.position.Y;
+            if (Math.Abs(playerx - position.X) < 100 && Math.Abs(playery - position.Y) < 100)
             {
                 return true;
             }

@@ -10,9 +10,8 @@ using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using PandemicShoppingGame.GameParts;
-using PandemicShoppingGame.Scores;
 using PandemicShoppingGame.Level;
+using PandemicShoppingGame.Scores;
 using Microsoft.Xna.Framework.Input;
 
 namespace PandemicShoppingGame.GameStates
@@ -39,7 +38,7 @@ namespace PandemicShoppingGame.GameStates
             font  = _content.Load<SpriteFont>("Fonts/Standard");
             background = _content.Load<Texture2D>("tile");
 
-            levelManager = new LevelManager();
+            levelManager = new LevelManager(_content);
             levelManager.LoadLevel(level);
 
         }
@@ -78,6 +77,11 @@ namespace PandemicShoppingGame.GameStates
             //Draw Background
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap);
             spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), new Rectangle(0, 0, background.Width * 30, background.Height * 20), Color.White);
+            spriteBatch.End();
+
+            //Draw level contents
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, "Health: " + levelManager.player.health + " + " + levelManager.player.armor, new Vector2(20, 20), Color.Black);
             spriteBatch.End();
         }
     }

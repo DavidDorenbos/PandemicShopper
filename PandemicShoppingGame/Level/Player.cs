@@ -9,9 +9,8 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using PandemicShoppingGame.Level;
 
-namespace PandemicShoppingGame.GameParts
+namespace PandemicShoppingGame.Level
 {
     public class Player : Pawn
     {
@@ -24,15 +23,14 @@ namespace PandemicShoppingGame.GameParts
         public int health = 100;
         public int armor = 0;
 
-        public Player(Texture2D texture, Vector2 position, float speed, float angle, int x, int y)
-            : base(texture, position, speed, angle)
+        public Player(ContentManager _content, int x, int y, float speed, float angle)
+            : base(x, y, speed, angle)
         {
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
-            slurp = content.Load<SoundEffect>("Effects/slurp");
-            scream = content.Load<SoundEffect>("Effects/scream");
+            slurp = _content.Load<SoundEffect>("Effects/slurp");
+            scream = _content.Load<SoundEffect>("Effects/scream");
 
-            this.texture = texture;
-            position = new Vector2(x, y);
+            this.texture = _content.Load<Texture2D>("player1");
         }
 
         public override void Move()

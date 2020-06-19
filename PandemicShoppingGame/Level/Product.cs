@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PandemicShoppingGame.GameParts
+namespace PandemicShoppingGame.Level
 {
     public class Product
     {
@@ -33,8 +33,8 @@ namespace PandemicShoppingGame.GameParts
         //Check if player is close to product
         public bool isClose(Player player)
         {
-            float playerx = player.Position.X;
-            float playery = player.Position.Y;
+            float playerx = player.position.X;
+            float playery = player.position.Y;
             if(Math.Abs(playerx - x) < 100 && Math.Abs(playery - y) < 100)
             {
                 return true;
