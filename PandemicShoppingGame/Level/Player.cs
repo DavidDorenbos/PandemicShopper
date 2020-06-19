@@ -26,11 +26,12 @@ namespace PandemicShoppingGame.Level
         public Player(ContentManager _content, int x, int y, float speed, float angle)
             : base(x, y, speed, angle)
         {
+            this.texture = _content.Load<Texture2D>("player1");
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
             slurp = _content.Load<SoundEffect>("Effects/slurp");
             scream = _content.Load<SoundEffect>("Effects/scream");
 
-            this.texture = _content.Load<Texture2D>("player1");
+            
         }
 
         public override void Move()

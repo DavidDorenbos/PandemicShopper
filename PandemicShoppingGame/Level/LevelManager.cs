@@ -19,6 +19,7 @@ namespace PandemicShoppingGame.Level
 
         public LevelManager(ContentManager _content)
         {
+            this._content = _content;
             this.noNewLevel = false;
         }
 
@@ -27,7 +28,7 @@ namespace PandemicShoppingGame.Level
             //Load Textures
             XmlDocument xDoc = new XmlDocument();
             String levelDoc = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml";
-
+            xDoc.Load(levelDoc);
             LoadPawns(xDoc);
         }
 

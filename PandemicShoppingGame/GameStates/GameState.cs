@@ -40,12 +40,11 @@ namespace PandemicShoppingGame.GameStates
 
             levelManager = new LevelManager(_content);
             levelManager.LoadLevel(level);
-
         }
 
         public override void Initialize()
         {
-
+            
         }
 
         public override void LoadContent()
