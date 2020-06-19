@@ -106,6 +106,12 @@ namespace PandemicShoppingGame.GameStates
                 spriteBatch.Draw(levelManager.enemies[i].texture, levelManager.enemies[i].position, Color.White);
             }
 
+            //Draw shelves
+            for (int i = 0; i < levelManager.shelves.Count; i++)
+            {
+                spriteBatch.Draw(levelManager.shelves[i].texture, levelManager.shelves[i].position, Color.White);
+            }
+
             //Draw shoppinglist
             spriteBatch.Draw(shopListTexture, new Rectangle(20, 60, 40, 40), Color.White);
 

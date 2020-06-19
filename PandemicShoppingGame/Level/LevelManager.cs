@@ -39,10 +39,14 @@ namespace PandemicShoppingGame.Level
             if (File.Exists(levelDoc))
             {
                 xDoc.Load(levelDoc);
+
                 LoadPawns(xDoc);
+                LoadShelves(xDoc);
+                LoadCashier(xDoc);
             }
         }
 
+        //Load all pawns out of the xml file
         private void LoadPawns(XmlDocument xDoc)
         {
             //Init Player
@@ -56,6 +60,27 @@ namespace PandemicShoppingGame.Level
                 Enemy en = new Enemy(_content, Int32.Parse(enemiesEl[i].FirstChild.InnerText), Int32.Parse(enemiesEl[i].LastChild.InnerText), 0, 0);
                 enemies.Add(en);
             }
+        }
+
+        private void LoadShelves(XmlDocument xDoc)
+        {
+            XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
+            for (int i = 0; i < verticalShelves.Count; i++)
+            {
+                LevelObject obj = new LevelObject(_content, Int32.Parse(verticalShelves[i].FirstChild.InnerText), Int32.Parse(verticalShelves[i].LastChild.InnerText), "shelfVertical");
+                shelves.Add(obj);
+            }
+            XmlNodeList horizontalShelves = xDoc.GetElementsByTagName("HorizontalShelve");
+            for (int i = 0; i < horizontalShelves.Count; i++)
+            {
+                LevelObject obj = new LevelObject(_content, Int32.Parse(horizontalShelves[i].FirstChild.InnerText), Int32.Parse(horizontalShelves[i].LastChild.InnerText), "shelf");
+                shelves.Add(obj);
+            }
+        }
+
+        private void LoadCashier(XmlDocument xDoc)
+        {
+
         }
     }
 }
