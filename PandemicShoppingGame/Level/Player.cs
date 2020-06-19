@@ -17,8 +17,8 @@ namespace PandemicShoppingGame.Level
         public Vector2 origin;
         public List<Product> inventory = new List<Product>();
 
-        private SoundEffect slurp;
-        private SoundEffect scream;
+        public SoundEffect slurp;
+        public SoundEffect scream;
 
         public int health = 100;
         public int armor = 0;
@@ -29,9 +29,7 @@ namespace PandemicShoppingGame.Level
             this.texture = _content.Load<Texture2D>("player1");
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
             slurp = _content.Load<SoundEffect>("Effects/slurp");
-            scream = _content.Load<SoundEffect>("Effects/scream");
-
-            
+            scream = _content.Load<SoundEffect>("Effects/scream"); 
         }
 
         public override void Move()

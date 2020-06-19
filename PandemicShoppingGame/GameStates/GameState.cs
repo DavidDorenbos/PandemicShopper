@@ -13,11 +13,14 @@ using Microsoft.Xna.Framework.Graphics;
 using PandemicShoppingGame.Level;
 using PandemicShoppingGame.Scores;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace PandemicShoppingGame.GameStates
 {
     public class GameState : State
     {
+        //TODO:
+        //Keep track of levels
         public SpriteFont font;
         public Texture2D background;
 
@@ -30,10 +33,14 @@ namespace PandemicShoppingGame.GameStates
         private LevelManager levelManager;
         private ScoreManager scoreManager;
 
+        private KeyboardState newState;
+        private KeyboardState oldState;
+
         private Stopwatch stopwatch = new Stopwatch();
         private long time;
 
         private int level = 1;
+        private int healthHelper = 0;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
@@ -137,10 +144,11 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.Draw(bagTexture, new Rectangle(20, 120, 40, 40), Color.White);
 
             //Draw inventoryproducts
-            int xPositionInventory = 130;
+            int xPositionInventory = 80;
             for (int i = 0; i < levelManager.player.inventory.Count; i++)
             {
-                levelManager.player.inventory[i].position.X = xPositionShoplistItems;
+                levelManager.player.inventory[i].position.X = xPositionInventory;
+                levelManager.player.inventory[i].position.Y = 130;
                 spriteBatch.Draw(levelManager.player.inventory[i].texture, levelManager.player.inventory[i].position, Color.White);
                 //Alignment Shoppinglist items
                 xPositionInventory += 20 + levelManager.player.inventory[i].texture.Width;
@@ -158,17 +166,91 @@ namespace PandemicShoppingGame.GameStates
 
         private void DetectShelfColision()
         {
+            //check if player walking into a shelve, if so stop the movement and place them player away from the object
+            foreach (LevelObject obj in levelManager.shelves)
+            {
+                if (obj.IsTouchingLeft(levelManager.player))
+                {
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.X -= 3;
+                    levelManager.player.speed = 2;
+                }
+                if (obj.IsTouchingRight(levelManager.player))
+                {
 
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.X += 3;
+                    levelManager.player.speed = 2;
+                }
+                if (obj.IsTouchingTop(levelManager.player))
+                {
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.Y -= 3;
+                    levelManager.player.speed = 2;
+                }
+                if (obj.IsTouchingBottom(levelManager.player))
+                {
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.Y += 3;
+                    levelManager.player.speed = 2;
+                }
+            }
         }
 
         private void PickUpProducts()
         {
+            Product delete = null;
+            //Pick Up items off the ground
+            newState = Keyboard.GetState();
+            if (newState.IsKeyUp(Keys.E) && oldState.IsKeyDown(Keys.E))
+            {
+                foreach (Product p in levelManager.productList)
+                {
+                    if (p.isClose(levelManager.player) && p.name == "mask")
+                    {
+                        levelManager.player.armor += 25;
+                        delete = p;
+                        levelManager.player.slurp.Play();
+                    }
+                    else if (p.isClose(levelManager.player) && !levelManager.player.inventory.Contains(p))
+                    {
+                        levelManager.player.inventory.Add(p);
+                        levelManager.player.slurp.Play();
+                    }
+                }
+            }
+            oldState = newState;
 
+            //if mask is picked up remove it from the game
+            if (delete != null)
+            {
+                levelManager.productList.Remove(delete);
+            }
         }
 
         private void UpdatePlayerHealth()
         {
-
+            //Check if player is close to enemy
+            foreach (Enemy e in levelManager.enemies)
+            {
+                if (e.isClose(levelManager.player))
+                {
+                    if (healthHelper == 4 && levelManager.player.armor > 0)
+                    {
+                        levelManager.player.armor--;
+                        healthHelper = 0;
+                    }
+                    else if (healthHelper == 4 && levelManager.player.armor == 0)
+                    {
+                        levelManager.player.health--;
+                        healthHelper = 0;
+                    }
+                    else
+                    {
+                        healthHelper++;
+                    }
+                }
+            }
         }
 
         private void CheckPlayerDied()
