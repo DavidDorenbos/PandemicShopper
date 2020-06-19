@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Microsoft.Xna.Framework.Content;
 using System.Xml;
+using System.IO;
 
 namespace PandemicShoppingGame.Level
 {
@@ -14,8 +15,15 @@ namespace PandemicShoppingGame.Level
         private bool noNewLevel;
 
         private ContentManager _content;
+
         public List<Enemy> enemies = new List<Enemy>();
         public Player player;
+
+        public List<LevelObject> shelves = new List<LevelObject>();
+        public List<Product> productList = new List<Product>();
+        public List<Product> shopList = new List<Product>();
+
+        public LevelObject cashier;
 
         public LevelManager(ContentManager _content)
         {
@@ -28,8 +36,11 @@ namespace PandemicShoppingGame.Level
             //Load Textures
             XmlDocument xDoc = new XmlDocument();
             String levelDoc = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml";
-            xDoc.Load(levelDoc);
-            LoadPawns(xDoc);
+            if (File.Exists(levelDoc))
+            {
+                xDoc.Load(levelDoc);
+                LoadPawns(xDoc);
+            }
         }
 
         private void LoadPawns(XmlDocument xDoc)

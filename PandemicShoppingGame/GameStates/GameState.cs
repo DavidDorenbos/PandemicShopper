@@ -21,6 +21,9 @@ namespace PandemicShoppingGame.GameStates
         public SpriteFont font;
         public Texture2D background;
 
+        public Texture2D shopListTexture;
+        public Texture2D bagTexture;
+
         private int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         private int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
@@ -38,8 +41,13 @@ namespace PandemicShoppingGame.GameStates
             font  = _content.Load<SpriteFont>("Fonts/Standard");
             background = _content.Load<Texture2D>("tile");
 
+            shopListTexture = _content.Load<Texture2D>("shoplist");
+            bagTexture = _content.Load<Texture2D>("bag");
+
             levelManager = new LevelManager(_content);
             levelManager.LoadLevel(level);
+
+            stopwatch.Start();
         }
 
         public override void Initialize()
@@ -59,11 +67,16 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Update(GameTime gameTime)
         {
+            //Update time value
+            time = stopwatch.ElapsedMilliseconds / 1000;
+
             //Temp keybind to get out of the game while it doesn't work
             if (Keyboard.GetState().IsKeyDown(Keys.K))
             {
                 _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
             }
+
+            levelManager.player.Move();
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -80,7 +93,25 @@ namespace PandemicShoppingGame.GameStates
 
             //Draw level contents
             spriteBatch.Begin();
+
+            //Draw game info
             spriteBatch.DrawString(font, "Health: " + levelManager.player.health + " + " + levelManager.player.armor, new Vector2(20, 20), Color.Black);
+            spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
+            spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth / 2, 20), Color.Black);
+
+            //Draw player and enemies
+            spriteBatch.Draw(levelManager.player.texture, levelManager.player.position, null, Color.White, levelManager.player.angle, levelManager.player.origin, 1, SpriteEffects.None, 0f);
+            for (int i = 0; i < levelManager.enemies.Count; i++)
+            {
+                spriteBatch.Draw(levelManager.enemies[i].texture, levelManager.enemies[i].position, Color.White);
+            }
+
+            //Draw shoppinglist
+            spriteBatch.Draw(shopListTexture, new Rectangle(20, 60, 40, 40), Color.White);
+
+            //Draw inventory
+            spriteBatch.Draw(bagTexture, new Rectangle(20, 120, 40, 40), Color.White);
+
             spriteBatch.End();
         }
     }

@@ -14,8 +14,8 @@ namespace PandemicShoppingGame.Level
         public Vector2 position;
         public Texture2D texture;
 
-        protected float speed;
-        protected float angle;
+        public float speed;
+        public float angle;
 
         public Pawn(int x, int y, float speed, float angle)
         {
