@@ -166,7 +166,8 @@ namespace PandemicShoppingGame.GameStates
 
         private void DetectShelfColision()
         {
-            //check if player walking into a shelve, if so stop the movement and place them player away from the object
+            //check if player walking into a shelve, if so stop the movement and place them player away from the object and give back the movement
+
             foreach (LevelObject obj in levelManager.shelves)
             {
                 if (obj.IsTouchingLeft(levelManager.player))
