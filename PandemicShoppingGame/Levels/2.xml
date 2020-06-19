@@ -1,134 +1,430 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <World>
-  <Name>Level 1</Name>
+  <Name>Level 2</Name>
   <Player>
-    <Xcoord>400</Xcoord>
-    <Ycoord>700</Ycoord>
+    <Xcoord>1880</Xcoord>
+    <Ycoord>850</Ycoord>
   </Player>
   <Cashier>
-    <Xcoord>200</Xcoord>
-    <Ycoord>300</Ycoord>
+    <Xcoord>100</Xcoord>
+    <Ycoord>832</Ycoord>
   </Cashier>
   <Objects>
     <VerticalShelves>
       <VerticalShelve>
-        <Xcoord>1200</Xcoord>
-        <Ycoord>740</Ycoord>
+        <Xcoord>1856</Xcoord>
+        <Ycoord>640</Ycoord>
       </VerticalShelve>
       <VerticalShelve>
-        <Xcoord>1200</Xcoord>
-        <Ycoord>600</Ycoord>
+        <Xcoord>1856</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1856</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1856</Xcoord>
+        <Ycoord>256</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1856</Xcoord>
+        <Ycoord>128</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1856</Xcoord>
+        <Ycoord>0</Ycoord>
       </VerticalShelve>
       <VerticalShelve>
         <Xcoord>1600</Xcoord>
-        <Ycoord>350</Ycoord>
-      </VerticalShelve>
-      <VerticalShelve>
-        <Xcoord>1200</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Ycoord>768</Ycoord>
       </VerticalShelve>
       <VerticalShelve>
         <Xcoord>1600</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1600</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1600</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>768</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1344</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1344</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1344</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1280</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1280</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1280</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1088</Xcoord>
+        <Ycoord>768</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1088</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1088</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1088</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>768</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>832</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>832</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>832</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>768</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>768</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>768</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>576</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+       <VerticalShelve>
+        <Xcoord>576</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+       <VerticalShelve>
+        <Xcoord>576</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>576</Xcoord>
+        <Ycoord>768</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+       <VerticalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+       <VerticalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>768</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>0</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>128</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>256</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>384</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>512</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>640</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>768</Ycoord>
+      </VerticalShelve>
+      <VerticalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>896</Ycoord>
       </VerticalShelve>
     </VerticalShelves>
     <HorizontalShelves>
       <HorizontalShelve>
-        <Xcoord>1750</Xcoord>
-        <Ycoord>800</Ycoord>
+        <Xcoord>1792</Xcoord>
+        <Ycoord>896</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1750</Xcoord>
-        <Ycoord>500</Ycoord>
+        <Xcoord>1664</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1408</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1280</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1152</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>896</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>768</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>640</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>512</Xcoord>
+        <Ycoord>896</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1728</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
         <Xcoord>1600</Xcoord>
-        <Ycoord>500</Ycoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1600</Xcoord>
-        <Ycoord>800</Ycoord>
+        <Xcoord>1472</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1300</Xcoord>
-        <Ycoord>800</Ycoord>
+        <Xcoord>1344</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1450</Xcoord>
-        <Ycoord>800</Ycoord>
+        <Xcoord>1216</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1600</Xcoord>
-        <Ycoord>800</Ycoord>
+        <Xcoord>1088</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1050</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Xcoord>960</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>900</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Xcoord>832</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>750</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Xcoord>704</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>600</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Xcoord>576</Xcoord>
+        <Ycoord>0</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>450</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Xcoord>384</Xcoord>
+        <Ycoord>192</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>300</Xcoord>
-        <Ycoord>450</Ycoord>
+        <Xcoord>256</Xcoord>
+        <Ycoord>192</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1450</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>128</Xcoord>
+        <Ycoord>192</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1300</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>0</Xcoord>
+        <Ycoord>192</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1150</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>64</Xcoord>
+        <Ycoord>384</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>1000</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>64</Xcoord>
+        <Ycoord>768</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>850</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>192</Xcoord>
+        <Ycoord>768</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>700</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>192</Xcoord>
+        <Ycoord>384</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>550</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>256</Xcoord>
+        <Ycoord>576</Ycoord>
       </HorizontalShelve>
       <HorizontalShelve>
-        <Xcoord>400</Xcoord>
-        <Ycoord>200</Ycoord>
+        <Xcoord>384</Xcoord>
+        <Ycoord>576</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>320</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1280</Xcoord>
+        <Ycoord>320</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>320</Ycoord>
+      </HorizontalShelve>
+       <HorizontalShelve>
+        <Xcoord>768</Xcoord>
+        <Ycoord>320</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1536</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1408</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1280</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1152</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>1024</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+    <HorizontalShelve>
+        <Xcoord>896</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>768</Xcoord>
+        <Ycoord>160</Ycoord>
+      </HorizontalShelve>
+      <HorizontalShelve>
+        <Xcoord>0</Xcoord>
+        <Ycoord>1024</Ycoord>
+      </HorizontalShelve>
+    <HorizontalShelve>
+        <Xcoord>128</Xcoord>
+        <Ycoord>1024</Ycoord>
+      </HorizontalShelve>
+    <HorizontalShelve>
+        <Xcoord>256</Xcoord>
+        <Ycoord>1024</Ycoord>
       </HorizontalShelve>
     </HorizontalShelves>
   </Objects>
   <WorldProducts>
     <WorldProduct>
       <Name>singBread</Name>
-      <Xcoord>1250</Xcoord>
-      <Ycoord>500</Ycoord>
+      <Xcoord>1160</Xcoord>
+      <Ycoord>160</Ycoord>
+    </WorldProduct>
+    <WorldProduct>
+      <Name>singBread</Name>
+      <Xcoord>1200</Xcoord>
+      <Ycoord>160</Ycoord>
+    </WorldProduct>
+    <WorldProduct>
+      <Name>singBread</Name>
+      <Xcoord>1100</Xcoord>
+      <Ycoord>160</Ycoord>
+    </WorldProduct>
+    <WorldProduct>
+      <Name>singBread</Name>
+      <Xcoord>1040</Xcoord>
+      <Ycoord>160</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>singMilk</Name>
-      <Xcoord>1000</Xcoord>
-      <Ycoord>400</Ycoord>
+      <Xcoord>30</Xcoord>
+      <Ycoord>280</Ycoord>
+    </WorldProduct>
+    <WorldProduct>
+      <Name>singMilk</Name>
+      <Xcoord>30</Xcoord>
+      <Ycoord>320</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>singKetch</Name>
@@ -136,26 +432,63 @@
       <Ycoord>400</Ycoord>
     </WorldProduct>
     <WorldProduct>
+      <Name>singKetch</Name>
+      <Xcoord>1300</Xcoord>
+      <Ycoord>600</Ycoord>
+    </WorldProduct>
+    <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
       <Ycoord>400</Ycoord>
+    </WorldProduct>
+  <WorldProduct>
+      <Name>SingOlive</Name>
+      <Xcoord>800</Xcoord>
+      <Ycoord>430</Ycoord>
+    </WorldProduct>
+  <WorldProduct>
+      <Name>SingOlive</Name>
+      <Xcoord>800</Xcoord>
+      <Ycoord>460</Ycoord>
     </WorldProduct>
   </WorldProducts>
   <ShoppingListProducts>
     <ShoppingListProduct>
       <Name>SingOlive</Name>
     </ShoppingListProduct>
-    <ShoppingListProduct>
-      <Name>SingOlive</Name>
-    </ShoppingListProduct>
-    <ShoppingListProduct>
-      <Name>SingOlive</Name>
-    </ShoppingListProduct>
   </ShoppingListProducts>
   <Enemies>
     <Enemy>
-      <Xcoord>1000</Xcoord>
-      <Ycoord>300</Ycoord>
+      <Xcoord>1312</Xcoord>
+      <Ycoord>240</Ycoord>
+    </Enemy>
+    <Enemy>
+      <Xcoord>690</Xcoord>
+      <Ycoord>100</Ycoord>
+    </Enemy>
+    <Enemy>
+      <Xcoord>850</Xcoord>
+      <Ycoord>250</Ycoord>
+    </Enemy>
+  <Enemy>
+      <Xcoord>70</Xcoord>
+      <Ycoord>480</Ycoord>
+    </Enemy>
+  <Enemy>
+      <Xcoord>70</Xcoord>
+      <Ycoord>600</Ycoord>
+    </Enemy>
+  <Enemy>
+      <Xcoord>70</Xcoord>
+      <Ycoord>710</Ycoord>
+    </Enemy>
+  <Enemy>
+      <Xcoord>1810</Xcoord>
+      <Ycoord>250</Ycoord>
+    </Enemy>
+  <Enemy>
+      <Xcoord>180</Xcoord>
+      <Ycoord>832</Ycoord>
     </Enemy>
   </Enemies>
 </World>
