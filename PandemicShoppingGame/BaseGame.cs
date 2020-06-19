@@ -67,7 +67,7 @@ namespace PandemicShoppingGame
             MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 
 
-            _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content, nextLevel());
+            _currentState = new MainMenuState(this, graphics.GraphicsDevice, Content);
         }
 
         /// <summary>

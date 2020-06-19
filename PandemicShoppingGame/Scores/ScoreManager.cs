@@ -114,5 +114,39 @@ namespace PandemicShoppingGame.Scores
              
             doc.Save(XmlScoreFile);
         }
+
+        private void SaveScore(int level, int score)
+        {
+            String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(XmlScoreFile);
+            XmlElement levelNode = doc.DocumentElement["Level" + level.ToString()];
+            XmlElement scoreNode = doc.CreateElement("Score");
+            scoreNode.InnerText = score.ToString();
+            if (levelNode == null)
+            {
+                XmlElement node = doc.CreateElement("Level" + level.ToString());
+                node.AppendChild(scoreNode);
+            }
+            else
+            {
+                if (levelNode.FirstChild == null)
+                {
+                    levelNode.AppendChild(scoreNode);
+                }
+                else
+                {
+                    int highScoreEl = Int32.Parse(levelNode.FirstChild.InnerText);
+
+                    if (score > highScoreEl)
+                    {
+                        levelNode.FirstChild.InnerText = score.ToString();
+                    }
+                }
+            }
+
+            doc.Save(XmlScoreFile);
+        }
     }
 }

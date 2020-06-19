@@ -66,12 +66,12 @@ namespace PandemicShoppingGame.GameStates
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
             int previouslevel = level -= 1;
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, previouslevel));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
         }
 
         public override void Initialize()

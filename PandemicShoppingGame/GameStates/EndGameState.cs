@@ -101,17 +101,17 @@ namespace PandemicShoppingGame.GameStates
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
             int previouslevel = level -= 1;
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, previouslevel));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
