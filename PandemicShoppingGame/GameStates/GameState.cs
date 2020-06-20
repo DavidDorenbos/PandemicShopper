@@ -39,7 +39,7 @@ namespace PandemicShoppingGame.GameStates
         private Stopwatch stopwatch = new Stopwatch();
         private long time;
 
-        private int level = 1;
+        private int level;
 
         private int healthHelper = 0;
 
