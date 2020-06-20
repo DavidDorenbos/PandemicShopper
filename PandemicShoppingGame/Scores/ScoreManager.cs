@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using PandemicShoppingGame.GameParts;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PandemicShoppingGame.Level;
 using System.Xml;
 
 namespace PandemicShoppingGame.Scores
@@ -20,7 +20,7 @@ namespace PandemicShoppingGame.Scores
         private List<Product> inventory = new List<Product>();
         private List<Product> shopList = new List<Product>();
 
-        public ScoreManager (int level, int health, int time, List<Product> inventory, List<Product> shopList )
+        public ScoreManager (int level, int health, int time, List<Product> inventory, List<Product> shopList)
         {
             this.level = level;
             this.health = health;
@@ -83,6 +83,10 @@ namespace PandemicShoppingGame.Scores
             }
 
             score = (1000 + (health * (10 * level))) - (time * (10 * level))  - (sum * 25);
+        }
+
+        public void SaveScore(int level)
+        {
             String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
 
             XmlDocument doc = new XmlDocument();
@@ -90,7 +94,7 @@ namespace PandemicShoppingGame.Scores
             XmlElement levelNode = doc.DocumentElement["Level" + level.ToString()];
             XmlElement scoreNode = doc.CreateElement("Score");
             scoreNode.InnerText = score.ToString();
-            if(levelNode == null)
+            if (levelNode == null)
             {
                 XmlElement node = doc.CreateElement("Level" + level.ToString());
                 node.AppendChild(scoreNode);
@@ -111,7 +115,7 @@ namespace PandemicShoppingGame.Scores
                     }
                 }
             }
-             
+
             doc.Save(XmlScoreFile);
         }
     }

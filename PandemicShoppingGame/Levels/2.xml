@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <World>
   <Name>Level 2</Name>
   <Player>
@@ -151,11 +151,11 @@
         <Xcoord>576</Xcoord>
         <Ycoord>384</Ycoord>
       </VerticalShelve>
-       <VerticalShelve>
+      <VerticalShelve>
         <Xcoord>576</Xcoord>
         <Ycoord>512</Ycoord>
       </VerticalShelve>
-       <VerticalShelve>
+      <VerticalShelve>
         <Xcoord>576</Xcoord>
         <Ycoord>640</Ycoord>
       </VerticalShelve>
@@ -167,7 +167,7 @@
         <Xcoord>512</Xcoord>
         <Ycoord>384</Ycoord>
       </VerticalShelve>
-       <VerticalShelve>
+      <VerticalShelve>
         <Xcoord>512</Xcoord>
         <Ycoord>512</Ycoord>
       </VerticalShelve>
@@ -175,7 +175,7 @@
         <Xcoord>512</Xcoord>
         <Ycoord>640</Ycoord>
       </VerticalShelve>
-       <VerticalShelve>
+      <VerticalShelve>
         <Xcoord>512</Xcoord>
         <Ycoord>768</Ycoord>
       </VerticalShelve>
@@ -349,7 +349,7 @@
         <Xcoord>1024</Xcoord>
         <Ycoord>320</Ycoord>
       </HorizontalShelve>
-       <HorizontalShelve>
+      <HorizontalShelve>
         <Xcoord>768</Xcoord>
         <Ycoord>320</Ycoord>
       </HorizontalShelve>
@@ -373,7 +373,7 @@
         <Xcoord>1024</Xcoord>
         <Ycoord>160</Ycoord>
       </HorizontalShelve>
-    <HorizontalShelve>
+      <HorizontalShelve>
         <Xcoord>896</Xcoord>
         <Ycoord>160</Ycoord>
       </HorizontalShelve>
@@ -385,11 +385,11 @@
         <Xcoord>0</Xcoord>
         <Ycoord>1024</Ycoord>
       </HorizontalShelve>
-    <HorizontalShelve>
+      <HorizontalShelve>
         <Xcoord>128</Xcoord>
         <Ycoord>1024</Ycoord>
       </HorizontalShelve>
-    <HorizontalShelve>
+      <HorizontalShelve>
         <Xcoord>256</Xcoord>
         <Ycoord>1024</Ycoord>
       </HorizontalShelve>
@@ -441,12 +441,12 @@
       <Xcoord>800</Xcoord>
       <Ycoord>400</Ycoord>
     </WorldProduct>
-  <WorldProduct>
+    <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
       <Ycoord>430</Ycoord>
     </WorldProduct>
-  <WorldProduct>
+    <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
       <Ycoord>460</Ycoord>
@@ -470,26 +470,25 @@
       <Xcoord>850</Xcoord>
       <Ycoord>250</Ycoord>
     </Enemy>
-  <Enemy>
+    <Enemy>
       <Xcoord>70</Xcoord>
       <Ycoord>480</Ycoord>
     </Enemy>
-  <Enemy>
+    <Enemy>
       <Xcoord>70</Xcoord>
       <Ycoord>600</Ycoord>
     </Enemy>
-  <Enemy>
+    <Enemy>
       <Xcoord>70</Xcoord>
       <Ycoord>710</Ycoord>
     </Enemy>
-  <Enemy>
+    <Enemy>
       <Xcoord>1810</Xcoord>
       <Ycoord>250</Ycoord>
     </Enemy>
-  <Enemy>
+    <Enemy>
       <Xcoord>180</Xcoord>
       <Ycoord>832</Ycoord>
     </Enemy>
   </Enemies>
 </World>
-  

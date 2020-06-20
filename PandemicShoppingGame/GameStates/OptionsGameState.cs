@@ -19,14 +19,12 @@ namespace PandemicShoppingGame.GameStates
         private List<Component> _components;
         private Texture2D backgroundTexture;
         private Vector2 backgroundPosition;
-        private int level;
 
-        public OptionsGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
+        public OptionsGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
             font = _content.Load<SpriteFont>("Fonts/Standard");
 
-            this.level = level;
             var backButtonTexture = _content.Load<Texture2D>("Buttons/Back");
             var volUpButtonTexture = _content.Load<Texture2D>("Buttons/volUp");
             var volDownButtonTexture = _content.Load<Texture2D>("Buttons/volDown");
@@ -69,7 +67,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
         }
         private void volDown_Click(object sender, EventArgs e)
         {

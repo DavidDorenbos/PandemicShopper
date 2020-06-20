@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -44,6 +46,30 @@ namespace PandemicShoppingGame.GameStates
         public abstract void PostUpdate(GameTime gameTime);
 
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+
+        public int NextLevel()
+        {
+            String XmlScoreFile = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Scores/score.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(XmlScoreFile);
+            for (int i = 1; i < 100; i++)
+            {
+                String levelDoc = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + i + ".xml";
+
+                if (File.Exists(levelDoc))
+                {
+                    if (!doc.GetElementsByTagName("Level" + i)[0].HasChildNodes)
+                    {
+                        return i;
+                    }
+                }
+                else
+                {
+                    return i - 1;
+                }
+            }
+            return 1;
+        }
 
         #endregion
     }

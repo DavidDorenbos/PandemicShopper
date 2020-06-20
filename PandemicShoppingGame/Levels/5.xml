@@ -2,8 +2,8 @@
 <World>
   <Name>Level 1</Name>
   <Player>
-    <Xcoord>1800</Xcoord>
-    <Ycoord>700</Ycoord>
+    <Xcoord>400</Xcoord>
+    <Ycoord>600</Ycoord>
   </Player>
   <Cashier>
     <Xcoord>200</Xcoord>
@@ -136,25 +136,20 @@
       <Ycoord>400</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singOlive</Name>
+      <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
       <Ycoord>400</Ycoord>
-    </WorldProduct>
-    <WorldProduct>
-      <Name>mask</Name>
-      <Xcoord>1300</Xcoord>
-      <Ycoord>600</Ycoord>
     </WorldProduct>
   </WorldProducts>
   <ShoppingListProducts>
     <ShoppingListProduct>
-      <Name>singOlive</Name>
+      <Name>SingOlive</Name>
     </ShoppingListProduct>
     <ShoppingListProduct>
-      <Name>singOlive</Name>
+      <Name>SingOlive</Name>
     </ShoppingListProduct>
     <ShoppingListProduct>
-      <Name>singOlive</Name>
+      <Name>SingOlive</Name>
     </ShoppingListProduct>
   </ShoppingListProducts>
   <Enemies>

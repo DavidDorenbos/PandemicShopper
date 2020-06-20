@@ -24,23 +24,15 @@ namespace PandemicShoppingGame.GameStates
 
         private Texture2D[] numbertextures = new Texture2D[10];
 
-        private int level;
         private int score;
+        private int level;
 
-        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level, int score)
+        public EndGameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int score, int level)
           : base(game, graphicsDevice, content)
         {
             this.score = score;
+            this.level = level;
 
-            if (level == 0)
-            {
-                this.level = 1;
-            }
-            else
-            {
-                this.level = level;
-            }
-            
             for(int i = 0; i <10; i++)
             {
                 numbertextures[i] = _content.Load<Texture2D>("Numbers/" + i.ToString());
@@ -89,29 +81,26 @@ namespace PandemicShoppingGame.GameStates
             
             _components = new List<Component>()
               {
-                restartGameButton,
                 nextLevelButton,
+                restartGameButton,
                 mainMenuButton,
                 exitButton,
-              };
-
-            
+              };  
         }
 
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
-            int previouslevel = level -= 1;
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, previouslevel));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level));
         }
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level + 1));
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

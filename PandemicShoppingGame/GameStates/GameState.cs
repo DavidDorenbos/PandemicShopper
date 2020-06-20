@@ -10,180 +10,59 @@ using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using PandemicShoppingGame.GameParts;
+using PandemicShoppingGame.Level;
 using PandemicShoppingGame.Scores;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace PandemicShoppingGame.GameStates
 {
     public class GameState : State
     {
+        //TODO:
+        //Keep track of levels
         public SpriteFont font;
-
-        public Player player;
-        public LevelObject cashier;
-
-        public Texture2D textureShopList;
-        public Texture2D textureBag;
         public Texture2D background;
 
-        public Texture2D textureShelf;
-        public Texture2D textureShelfVertical;
-
-        public Texture2D textureCashier;
-        public Texture2D textureEnemy;
-        public Texture2D texture;
-        private Texture2D maskTexture;
-
-        private Texture2D singMilkTexture;
-        private Texture2D singBreadTexture;
-        private Texture2D singKetchTexture;
-        private Texture2D singOliveTexture;
+        public Texture2D shopListTexture;
+        public Texture2D bagTexture;
 
         private int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         private int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-        public List<LevelObject> objectList = new List<LevelObject>();
-        public List<Product> shoppingList = new List<Product>();
-        public List<Product> productList = new List<Product>();
-        public List<Enemy> enemies = new List<Enemy>();
-
-        public int level;
-        private int score;
-
+        private LevelManager levelManager;
         private ScoreManager scoreManager;
-        public Stopwatch stopwatch = new Stopwatch();
-                
-        public long time;
 
-        private bool noNewLevel = false;
+        private KeyboardState newState;
+        private KeyboardState oldState;
+
+        private Stopwatch stopwatch = new Stopwatch();
+        private long time;
+
+        private int level;
+
+        private int healthHelper = 0;
 
         public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
         {
             font  = _content.Load<SpriteFont>("Fonts/Standard");
+            background = _content.Load<Texture2D>("tile");
 
             this.level = level;
 
-            //Initialize all used variables
-            textureBag = _content.Load<Texture2D>("bag");
-            textureShopList = _content.Load<Texture2D>("shoplist");
+            shopListTexture = _content.Load<Texture2D>("shoplist");
+            bagTexture = _content.Load<Texture2D>("bag");
 
-            background = _content.Load<Texture2D>("tile");
+            levelManager = new LevelManager(_content);
+            levelManager.LoadLevel(level);
 
-            textureShelf = _content.Load<Texture2D>("shelf");
-            textureShelfVertical = _content.Load<Texture2D>("shelfVertical");
-
-            textureCashier = _content.Load<Texture2D>("cashier");
-            textureEnemy = _content.Load<Texture2D>("enemy");
-            texture = _content.Load<Texture2D>("player1");
-            maskTexture = _content.Load<Texture2D>("mask");
-
-            singMilkTexture = _content.Load<Texture2D>("singmilk");
-            singBreadTexture = _content.Load<Texture2D>("singBread");
-            singKetchTexture = _content.Load<Texture2D>("singKetch");
-            singOliveTexture = _content.Load<Texture2D>("singOlive");
-
-            // TODO: Add your initialization logic here
-            //Load Textures
-            XmlDocument xDoc = new XmlDocument();
-            String levelDoc = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\Levels/" + level + ".xml";
-
-            if (File.Exists(levelDoc))
-            {
-                xDoc.Load(levelDoc);
-
-                //Load Shelves
-                XmlNodeList verticalShelves = xDoc.GetElementsByTagName("VerticalShelve");
-                for (int i = 0; i < verticalShelves.Count; i++)
-                {
-                    LevelObject obj = new LevelObject(Int32.Parse(verticalShelves[i].FirstChild.InnerText), Int32.Parse(verticalShelves[i].LastChild.InnerText), textureShelfVertical);
-                    objectList.Add(obj);
-                }
-                XmlNodeList horizontalShelves = xDoc.GetElementsByTagName("HorizontalShelve");
-                for (int i = 0; i < horizontalShelves.Count; i++)
-                {
-                    LevelObject obj = new LevelObject(Int32.Parse(horizontalShelves[i].FirstChild.InnerText), Int32.Parse(horizontalShelves[i].LastChild.InnerText), textureShelf);
-                    objectList.Add(obj);
-                }
-
-                //Init cashier
-                XmlNodeList cashierEl = xDoc.GetElementsByTagName("Cashier");
-                cashier = new LevelObject(Int32.Parse(cashierEl[0].FirstChild.InnerText), Int32.Parse(cashierEl[0].LastChild.InnerText), textureCashier);
-
-                //Init Player
-                XmlNodeList playerEl = xDoc.GetElementsByTagName("Player");
-                player = new Player(Int32.Parse(playerEl[0].FirstChild.InnerText), Int32.Parse(playerEl[0].LastChild.InnerText), texture, _content);
-
-                //Init products in world
-                XmlNodeList productsinWorld = xDoc.GetElementsByTagName("WorldProduct");
-                for (int i = 0; i < productsinWorld.Count; i++)
-                {
-                    Product prod = new Product(productsinWorld[i].FirstChild.InnerText, Int32.Parse(productsinWorld[i].ChildNodes[1].InnerText), Int32.Parse(productsinWorld[i].ChildNodes[2].InnerText), null);
-                    if (productsinWorld[i].FirstChild.InnerText == "singMilk")
-                    {
-                        prod.texture = singMilkTexture;
-                    }
-                    else if (productsinWorld[i].FirstChild.InnerText == "singBread")
-                    {
-                        prod.texture = singBreadTexture;
-                    }
-                    else if (productsinWorld[i].FirstChild.InnerText == "singKetch")
-                    {
-                        prod.texture = singKetchTexture;
-                    }
-                    else if (productsinWorld[i].FirstChild.InnerText == "SingOlive")
-                    {
-                        prod.texture = singOliveTexture;
-                    }
-                    else if (productsinWorld[i].FirstChild.InnerText == "mask")
-                    {
-                        prod.texture = maskTexture;
-                    }
-                    productList.Add(prod);
-                }
-
-                //Init products in Shoppinglist
-                XmlNodeList productsShoplist = xDoc.GetElementsByTagName("ShoppingListProduct");
-                for (int i = 0; i < productsShoplist.Count; i++)
-                {
-                    Product prod = new Product(productsShoplist[i].FirstChild.InnerText, 0, 70, null);
-                    if (productsShoplist[i].FirstChild.InnerText == "singMilk")
-                    {
-                        prod.texture = singMilkTexture;
-                    }
-                    else if (productsShoplist[i].FirstChild.InnerText == "singBread")
-                    {
-                        prod.texture = singBreadTexture;
-                    }
-                    else if (productsShoplist[i].FirstChild.InnerText == "singKetch")
-                    {
-                        prod.texture = singKetchTexture;
-                    }
-                    else if (productsShoplist[i].FirstChild.InnerText == "SingOlive")
-                    {
-                        prod.texture = singOliveTexture;
-                    }
-                    shoppingList.Add(prod);
-                }
-
-                //Init enemies
-                XmlNodeList enemiesEl = xDoc.GetElementsByTagName("Enemy");
-                for (int i = 0; i < enemiesEl.Count; i++)
-                {
-                    Enemy en = new Enemy(Int32.Parse(enemiesEl[i].FirstChild.InnerText), Int32.Parse(enemiesEl[i].LastChild.InnerText), textureEnemy);
-                    enemies.Add(en);
-                }
-                stopwatch.Start();
-            }
-            else
-            {
-                noNewLevel = true;
-            }
+            stopwatch.Start();
         }
 
         public override void Initialize()
         {
-
+            
         }
 
         public override void LoadContent()
@@ -198,50 +77,16 @@ namespace PandemicShoppingGame.GameStates
 
         public override void Update(GameTime gameTime)
         {
-            if (noNewLevel == true)
-            {
-                _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
-            }
-            else
-            {
-                player.Update(gameTime, objectList, productList, enemies);
-                time = stopwatch.ElapsedMilliseconds / 1000;
+            //Update time value
+            time = stopwatch.ElapsedMilliseconds / 1000;
 
-                int timeScore =  unchecked((int)time);
+            levelManager.player.Move();
 
-                scoreManager = new ScoreManager(level, player.health, timeScore, player.inventory, shoppingList);
-
-                //Game Won
-                if (cashier.IsTouchingLeft(player) || cashier.IsTouchingTop(player) || cashier.IsTouchingRight(player) || cashier.IsTouchingBottom(player))
-                {
-                    stopwatch.Stop();
-                    player.Speed = 0;
-                    List<string> shoplist = new List<string>();
-                    List<string> inventory = new List<string>();
-
-                    foreach (Product prod in player.inventory)
-                    {
-                        inventory.Add(prod.name);
-                    }
-                    foreach (Product prod in shoppingList)
-                    {
-                        shoplist.Add(prod.name);
-                    }
-
-                    scoreManager.CalculateScore();
-
-                    score = scoreManager.GetScore();
-
-                    level++;
-                    _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, level, score));
-                }
-
-                //Game Lost
-                if (player.health == 0)
-                {
-                    _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, level));
-                }
-            }
+            DetectShelfColision();
+            PickUpProducts();
+            UpdatePlayerHealth();
+            CheckPlayerDied();
+            DetectLevelFinished();
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -256,71 +101,180 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.Draw(background, new Rectangle(0, 0, screenWidth, screenHeight), new Rectangle(0, 0, background.Width * 30, background.Height * 20), Color.White);
             spriteBatch.End();
 
-            if (noNewLevel == false)
+            //Draw level contents
+            spriteBatch.Begin();
+
+            //Draw game info
+            spriteBatch.DrawString(font, "Health: " + levelManager.player.health + " + " + levelManager.player.armor, new Vector2(20, 20), Color.Black);
+            spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
+            spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth / 2, 20), Color.Black);
+
+            //Draw cashier
+            spriteBatch.Draw(levelManager.cashier.texture, levelManager.cashier.position, Color.White);
+
+            //Draw shelves
+            for (int i = 0; i < levelManager.shelves.Count; i++)
             {
-                spriteBatch.Begin();
+                spriteBatch.Draw(levelManager.shelves[i].texture, levelManager.shelves[i].position, Color.White);
+            }
 
-                //Draw Health
-                spriteBatch.DrawString(font, "Health: " + player.health + " + " + player.armor, new Vector2(20, 20), Color.Black);
-                player.Draw(spriteBatch);
+            //Draw worlditems
+            for (int i = 0; i < levelManager.productList.Count; i++)
+            {
+                spriteBatch.Draw(levelManager.productList[i].texture, levelManager.productList[i].position, Color.White);
+            }
 
-                //Draw Score
-                spriteBatch.DrawString(font, "Score: " + score, new Vector2(200, 20), Color.Black);
-                player.Draw(spriteBatch);
+            //Draw shoppinglist
+            spriteBatch.Draw(shopListTexture, new Rectangle(20, 60, 40, 40), Color.White);
 
+            //Draw shoppinglist items
+            int xPositionShoplistItems = 70;
+            for (int i = 0; i < levelManager.shopList.Count; i++)
+            {
+                levelManager.shopList[i].position.X = xPositionShoplistItems;
+                spriteBatch.Draw(levelManager.shopList[i].texture, levelManager.shopList[i].position, Color.White);
+                //Alignment Shoppinglist items
+                xPositionShoplistItems += 20 + levelManager.shopList[i].texture.Width;
+            }
 
-                //Draw Level
-                spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth / 2, 20), Color.Black);
-                player.Draw(spriteBatch);
+            //Draw inventory
+            spriteBatch.Draw(bagTexture, new Rectangle(20, 120, 40, 40), Color.White);
 
-                //Draw Level
-                spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
-                player.Draw(spriteBatch);
+            //Draw inventoryproducts
+            int xPositionInventory = 80;
+            for (int i = 0; i < levelManager.player.inventory.Count; i++)
+            {
+                levelManager.player.inventory[i].position.X = xPositionInventory;
+                levelManager.player.inventory[i].position.Y = 130;
+                spriteBatch.Draw(levelManager.player.inventory[i].texture, levelManager.player.inventory[i].position, Color.White);
+                //Alignment Shoppinglist items
+                xPositionInventory += 20 + levelManager.player.inventory[i].texture.Width;
+            }
 
-                //Draw Cashier
-                cashier.Draw(spriteBatch);
+            //Draw player and enemies
+            for (int i = 0; i < levelManager.enemies.Count; i++)
+            {
+                spriteBatch.Draw(levelManager.enemies[i].texture, levelManager.enemies[i].position, Color.White);
+            }
+            spriteBatch.Draw(levelManager.player.texture, levelManager.player.position, null, Color.White, levelManager.player.angle, levelManager.player.origin, 1, SpriteEffects.None, 0f);
 
-                //Draw ShoppingList
-                spriteBatch.Draw(textureShopList, new Rectangle(20, 60, 40, 40), Color.White);
-                int xPositionShoplistItems = 70;
-                for (int i = 0; i < shoppingList.Count; i++)
+            spriteBatch.End();
+        }
+
+        private void DetectShelfColision()
+        {
+            //check if player walking into a shelve, if so stop the movement and place them player away from the object and give back the movement
+
+            foreach (LevelObject obj in levelManager.shelves)
+            {
+                if (obj.IsTouchingLeft(levelManager.player))
                 {
-                    shoppingList[i].Position.X = xPositionShoplistItems;
-                    shoppingList[i].Draw(spriteBatch);
-                    //Alignment Shoppinglist items
-                    xPositionShoplistItems += 20 + shoppingList[i].texture.Width;
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.X -= 3;
+                    levelManager.player.speed = 2;
                 }
-
-                //Draw Inventory
-                spriteBatch.Draw(textureBag, new Rectangle(20, 120, 40, 40), Color.White);
-                int xPositionInventoryItems = 70;
-                for (int i = 0; i < player.inventory.Count; i++)
+                if (obj.IsTouchingRight(levelManager.player))
                 {
-                    player.inventory[i].Position.X = xPositionInventoryItems;
-                    player.inventory[i].Position.Y = 130;
-                    player.inventory[i].Draw(spriteBatch);
-                    //Alignment Inventory items
-                    xPositionInventoryItems += 20 + player.inventory[i].texture.Width;
-                }
 
-                //Draw Shelves
-                for (int i = 0; i < objectList.Count; i++)
-                {
-                    objectList[i].Draw(spriteBatch);
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.X += 3;
+                    levelManager.player.speed = 2;
                 }
+                if (obj.IsTouchingTop(levelManager.player))
+                {
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.Y -= 3;
+                    levelManager.player.speed = 2;
+                }
+                if (obj.IsTouchingBottom(levelManager.player))
+                {
+                    levelManager.player.speed = 0;
+                    levelManager.player.position.Y += 3;
+                    levelManager.player.speed = 2;
+                }
+            }
+        }
 
-                //Draw Enemies
-                for (int i = 0; i < enemies.Count; i++)
+        private void PickUpProducts()
+        {
+            Product delete = null;
+            //Pick Up items off the ground
+            newState = Keyboard.GetState();
+            if (newState.IsKeyUp(Keys.E) && oldState.IsKeyDown(Keys.E))
+            {
+                foreach (Product p in levelManager.productList)
                 {
-                    enemies[i].Draw(spriteBatch);
+                    if (p.isClose(levelManager.player) && p.name == "mask")
+                    {
+                        levelManager.player.armor += 25;
+                        delete = p;
+                        levelManager.player.slurp.Play();
+                    }
+                    else if (p.isClose(levelManager.player) && !levelManager.player.inventory.Contains(p))
+                    {
+                        levelManager.player.inventory.Add(p);
+                        levelManager.player.slurp.Play();
+                    }
                 }
+            }
+            oldState = newState;
 
-                //Draw Products In world
-                foreach (Product prod in productList)
+            //if mask is picked up remove it from the game
+            if (delete != null)
+            {
+                levelManager.productList.Remove(delete);
+            }
+        }
+
+        private void UpdatePlayerHealth()
+        {
+            //Check if player is close to enemy
+            foreach (Enemy e in levelManager.enemies)
+            {
+                if (e.isClose(levelManager.player))
                 {
-                    prod.Draw(spriteBatch);
+                    if (healthHelper == 4 && levelManager.player.armor > 0)
+                    {
+                        levelManager.player.armor--;
+                        healthHelper = 0;
+                        levelManager.player.scream.Play();
+                    }
+                    else if (healthHelper == 4 && levelManager.player.armor == 0)
+                    {
+                        levelManager.player.health--;
+                        healthHelper = 0;
+                        levelManager.player.scream.Play();
+                    }
+                    else
+                    {
+                        healthHelper++;
+                    }
                 }
-                spriteBatch.End();
+            }
+        }
+
+        private void CheckPlayerDied()
+        {
+            if(levelManager.player.health == 0)
+            {
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, level));
+            }
+        }
+
+        private void DetectLevelFinished()
+        {
+            if (levelManager.cashier.IsTouchingLeft(levelManager.player) || levelManager.cashier.IsTouchingTop(levelManager.player) || levelManager.cashier.IsTouchingRight(levelManager.player) || levelManager.cashier.IsTouchingBottom(levelManager.player))
+            {
+                stopwatch.Stop();
+                levelManager.player.speed = 0;
+                int timeScore = unchecked((int)time);
+
+                scoreManager = new ScoreManager(level, levelManager.player.health, timeScore, levelManager.player.inventory, levelManager.shopList);
+
+                scoreManager.CalculateScore();
+                scoreManager.SaveScore(level);
+
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, scoreManager.GetScore(), level));
             }
         }
     }

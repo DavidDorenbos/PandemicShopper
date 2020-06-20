@@ -21,22 +21,11 @@ namespace PandemicShoppingGame.GameStates
 
         public SpriteFont font;
 
-        private int level;
-
-        public ScoreState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
+        public ScoreState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
 
             font = _content.Load<SpriteFont>("Fonts/Standard");
-            if (level == 0)
-            {
-                this.level = 1;
-            }
-            else
-            {
-                this.level = level;
-            }
-
 
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
 
@@ -61,7 +50,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content, level));
+            _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
         }
 
         public override void Initialize()
@@ -101,14 +90,13 @@ namespace PandemicShoppingGame.GameStates
             int y = 300;
             foreach (int score in getHighScores())
             {
-                String output = "Level " + levelHelper + ": " + score;
+                String output = "Level " + levelHelper + " : " + score;
                 spriteBatch.DrawString(font, output, new Vector2(600, y), Color.Black);
                 levelHelper++;
                 y += 50;
             }
             spriteBatch.End();
-
-
+            
             spriteBatch.Begin();
 
             foreach (var component in _components)
