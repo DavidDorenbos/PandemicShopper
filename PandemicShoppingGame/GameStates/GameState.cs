@@ -80,12 +80,6 @@ namespace PandemicShoppingGame.GameStates
             //Update time value
             time = stopwatch.ElapsedMilliseconds / 1000;
 
-            //Temp keybind to get out of the game while it doesn't work
-            if (Keyboard.GetState().IsKeyDown(Keys.K))
-            {
-                _game.ChangeState(new MainMenuState(_game, _graphicsDevice, _content));
-            }
-
             levelManager.player.Move();
 
             DetectShelfColision();
@@ -280,7 +274,7 @@ namespace PandemicShoppingGame.GameStates
                 scoreManager.CalculateScore();
                 scoreManager.SaveScore(level);
 
-                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, scoreManager.GetScore()));
+                _game.ChangeState(new EndGameState(_game, _graphicsDevice, _content, scoreManager.GetScore(), level));
             }
         }
     }

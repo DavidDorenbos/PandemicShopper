@@ -79,7 +79,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void StartGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, 1));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, NextLevel()));
         }
 
         private void LevelButton_Click(object sender, EventArgs e)

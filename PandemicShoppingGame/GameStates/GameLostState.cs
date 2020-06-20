@@ -29,6 +29,8 @@ namespace PandemicShoppingGame.GameStates
         {
             font = _content.Load<SpriteFont>("Fonts/Standard");
 
+            this.level = level;
+
             var MainMenuButtonTexture = _content.Load<Texture2D>("Buttons/MainMenu");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Standard");
 
@@ -39,8 +41,6 @@ namespace PandemicShoppingGame.GameStates
 
             gameLostTitle = _content.Load<Texture2D>("Titles/GameOverTitle");
             gameLostTitlePosition = new Vector2(765, 190);
-
-            this.level = level;
 
             var restartGameButton = new Button(restartButtonTexture, buttonFont)
             {
