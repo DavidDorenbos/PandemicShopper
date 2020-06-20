@@ -136,17 +136,17 @@ namespace PandemicShoppingGame.GameStates
 
         private void OneButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, 1));
         }
 
         private void TwoButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, 2));
         }
 
         private void ThreeButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, 3));
         }
 
         private void FourButton_Click(object sender, EventArgs e)

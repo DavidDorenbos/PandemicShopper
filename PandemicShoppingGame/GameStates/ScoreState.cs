@@ -90,14 +90,13 @@ namespace PandemicShoppingGame.GameStates
             int y = 300;
             foreach (int score in getHighScores())
             {
-                String output = "Level " + levelHelper + ": " + score;
+                String output = "Level " + levelHelper + " : " + score;
                 spriteBatch.DrawString(font, output, new Vector2(600, y), Color.Black);
                 levelHelper++;
                 y += 50;
             }
             spriteBatch.End();
-
-
+            
             spriteBatch.Begin();
 
             foreach (var component in _components)

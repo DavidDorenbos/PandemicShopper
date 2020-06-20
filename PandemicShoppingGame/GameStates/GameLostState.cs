@@ -14,6 +14,7 @@ namespace PandemicShoppingGame.GameStates
 {
     public class GameLostState : State
     {
+        private SpriteFont font;
 
         private List<Component> _components;
         private Texture2D backgroundTexture;
@@ -21,9 +22,9 @@ namespace PandemicShoppingGame.GameStates
         private Texture2D gameLostTitle;
         private Vector2 gameLostTitlePosition;
 
-        private SpriteFont font;
+        private int level;
 
-        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public GameLostState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
         {
             font = _content.Load<SpriteFont>("Fonts/Standard");
@@ -38,6 +39,8 @@ namespace PandemicShoppingGame.GameStates
 
             gameLostTitle = _content.Load<Texture2D>("Titles/GameOverTitle");
             gameLostTitlePosition = new Vector2(765, 190);
+
+            this.level = level;
 
             var restartGameButton = new Button(restartButtonTexture, buttonFont)
             {
@@ -62,7 +65,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level));
         }
 
         private void BackButton_Click(object sender, EventArgs e)

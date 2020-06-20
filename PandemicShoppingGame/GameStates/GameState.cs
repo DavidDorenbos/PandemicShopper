@@ -40,13 +40,16 @@ namespace PandemicShoppingGame.GameStates
         private long time;
 
         private int level = 1;
+
         private int healthHelper = 0;
 
-        public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content)
+        public GameState(BaseGame game, GraphicsDevice graphicsDevice, ContentManager content, int level)
           : base(game, graphicsDevice, content)
         {
             font  = _content.Load<SpriteFont>("Fonts/Standard");
             background = _content.Load<Texture2D>("tile");
+
+            this.level = level;
 
             shopListTexture = _content.Load<Texture2D>("shoplist");
             bagTexture = _content.Load<Texture2D>("bag");
@@ -240,11 +243,13 @@ namespace PandemicShoppingGame.GameStates
                     {
                         levelManager.player.armor--;
                         healthHelper = 0;
+                        levelManager.player.scream.Play();
                     }
                     else if (healthHelper == 4 && levelManager.player.armor == 0)
                     {
                         levelManager.player.health--;
                         healthHelper = 0;
+                        levelManager.player.scream.Play();
                     }
                     else
                     {
@@ -258,7 +263,7 @@ namespace PandemicShoppingGame.GameStates
         {
             if(levelManager.player.health == 0)
             {
-                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content));
+                _game.ChangeState(new GameLostState(_game, _graphicsDevice, _content, level));
             }
         }
 

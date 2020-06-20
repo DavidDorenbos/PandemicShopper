@@ -80,8 +80,8 @@ namespace PandemicShoppingGame.GameStates
             
             _components = new List<Component>()
               {
-                restartGameButton,
                 nextLevelButton,
+                restartGameButton,
                 mainMenuButton,
                 exitButton,
               };
@@ -91,12 +91,12 @@ namespace PandemicShoppingGame.GameStates
 
         private void RestartGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, 1));
         }
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, 1));
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)
