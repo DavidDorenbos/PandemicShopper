@@ -20,7 +20,7 @@ namespace PandemicShoppingGame.GameStates
     public class GameState : State
     {
         //TODO:
-        //Keep track of levels
+        //Add difficulties?
         public SpriteFont font;
         public Texture2D background;
 
@@ -81,12 +81,13 @@ namespace PandemicShoppingGame.GameStates
             time = stopwatch.ElapsedMilliseconds / 1000;
 
             levelManager.player.Move();
-
+            PlayerCough();
             DetectShelfColision();
             PickUpProducts();
             UpdatePlayerHealth();
             CheckPlayerDied();
             DetectLevelFinished();
+            
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -226,12 +227,34 @@ namespace PandemicShoppingGame.GameStates
             }
         }
 
+        private void PlayerCough()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            {
+                if(levelManager.player.coughing > 0)
+                {
+                    levelManager.player.cough.Play();
+                    List<Enemy> closeEnemies = new List<Enemy>();
+                    foreach (Enemy e in levelManager.enemies)
+                    {
+                        if (e.isClose(levelManager.player, 200))
+                        {
+                            closeEnemies.Add(e);
+                        }
+                    }
+                    levelManager.enemies.RemoveAll(e => closeEnemies.Contains(e));
+                    levelManager.player.coughing--;
+                }
+                
+            }
+        }
+
         private void UpdatePlayerHealth()
         {
             //Check if player is close to enemy
             foreach (Enemy e in levelManager.enemies)
             {
-                if (e.isClose(levelManager.player))
+                if (e.isClose(levelManager.player,100))
                 {
                     if (healthHelper == 4 && levelManager.player.armor > 0)
                     {

@@ -205,6 +205,12 @@
 /processorParam:TextureFormat=Color
 /build:cashier.png
 
+#begin Effects/cough.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Effects/cough.wav
+
 #begin Effects/scream.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

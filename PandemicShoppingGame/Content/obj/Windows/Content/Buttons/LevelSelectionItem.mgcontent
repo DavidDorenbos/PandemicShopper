@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/Buttons/LevelSelectionItem.png</SourceFile>
-  <SourceTime>2020-06-15T13:54:44.5044826+02:00</SourceTime>
-  <DestFile>E:/Gebruikers/Desktop-Michiel/Documenten/GithubRepositorys/PandemicShopper/PandemicShopper/PandemicShoppingGame/Content/bin/Windows/Content/Buttons/LevelSelectionItem.xnb</DestFile>
-  <DestTime>2020-06-19T22:57:29.4902998+02:00</DestTime>
+  <SourceFile>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/Buttons/LevelSelectionItem.png</SourceFile>
+  <SourceTime>2020-06-15T10:54:10.4924933+02:00</SourceTime>
+  <DestFile>C:/Users/david/OneDrive/Bureaublad/PandemicShoppingGame/PandemicShop/PandemicShoppingGame/Content/bin/Windows/Content/Buttons/LevelSelectionItem.xnb</DestFile>
+  <DestTime>2020-06-20T16:18:47.2653921+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -20,11 +20,11 @@ namespace PandemicShoppingGame.Level
         }
 
         //Check if player is close to enemy
-        public bool isClose(Player player)
+        public bool isClose(Player player, int range)
         {
             float playerx = player.position.X;
             float playery = player.position.Y;
-            if (Math.Abs(playerx - position.X) < 100 && Math.Abs(playery - position.Y) < 100)
+            if (Math.Abs(playerx - position.X) < range && Math.Abs(playery - position.Y) < range)
             {
                 return true;
             }

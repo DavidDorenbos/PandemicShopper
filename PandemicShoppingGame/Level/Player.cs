@@ -19,9 +19,11 @@ namespace PandemicShoppingGame.Level
 
         public SoundEffect slurp;
         public SoundEffect scream;
+        public SoundEffect cough;
 
         public int health = 100;
         public int armor = 0;
+        public int coughing = 1;
 
         public Player(ContentManager _content, int x, int y, float speed, float angle)
             : base(x, y, speed, angle)
@@ -29,7 +31,8 @@ namespace PandemicShoppingGame.Level
             this.texture = _content.Load<Texture2D>("player1");
             origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
             slurp = _content.Load<SoundEffect>("Effects/slurp");
-            scream = _content.Load<SoundEffect>("Effects/scream"); 
+            scream = _content.Load<SoundEffect>("Effects/scream");
+            cough = _content.Load<SoundEffect>("Effects/cough");
         }
 
         public override void Move()
