@@ -83,6 +83,11 @@ namespace PandemicShoppingGame.Scores
             }
 
             score = (1000 + (health * (10 * level))) - (time * (10 * level))  - (sum * 25);
+
+            if (score < 1)
+            {
+                score = 1;
+            }
         }
 
         public void SaveScore(int level)

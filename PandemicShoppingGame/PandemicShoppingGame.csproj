@@ -78,6 +78,9 @@
     <Content Include="Levels\1.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Levels\4.xml" />
+    <Content Include="Levels\5.xml" />
+    <Content Include="Levels\6.xml" />
     <Content Include="Scores\score.xml" />
   </ItemGroup>
   <ItemGroup>

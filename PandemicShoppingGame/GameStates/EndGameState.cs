@@ -95,7 +95,7 @@ namespace PandemicShoppingGame.GameStates
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, level + 1));
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content, NextLevel()));
         }
 
         private void MainMenuButton_Click(object sender, EventArgs e)

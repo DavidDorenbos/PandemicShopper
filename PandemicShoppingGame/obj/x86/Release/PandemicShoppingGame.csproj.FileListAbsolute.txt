@@ -69,3 +69,7 @@ E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\Pande
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\Music\anderhalvemeter.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\Effects\scream.xnb
 E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\Effects\slurp.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\Buttons\volDown.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\Buttons\volUp.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\Effects\cough.xnb
+E:\Gebruikers\Desktop-Michiel\Documenten\GithubRepositorys\PandemicShopper\PandemicShopper\PandemicShoppingGame\bin\Windows\x86\Release\Content\mask.xnb
