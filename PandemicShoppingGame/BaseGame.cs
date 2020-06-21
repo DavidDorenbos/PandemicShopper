@@ -31,9 +31,18 @@ namespace PandemicShoppingGame
 
         public BaseGame()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.IsFullScreen = true;
-            graphics.HardwareModeSwitch = false;
+            int  _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            if(_screenWidth > 1920 )
+            {
+                graphics.PreferredBackBufferWidth = 1920;
+                graphics.PreferredBackBufferHeight = 1080;
+            }
+            else
+            {
+                graphics = new GraphicsDeviceManager(this);
+                graphics.IsFullScreen = true;
+                graphics.HardwareModeSwitch = false;
+            }
             Content.RootDirectory = "Content";
         }
 

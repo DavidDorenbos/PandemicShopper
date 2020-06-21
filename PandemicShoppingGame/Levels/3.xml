@@ -433,47 +433,47 @@
   </Objects>
   <WorldProducts>
     <WorldProduct>
-      <Name>singBread</Name>
+      <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
       <Ycoord>150</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singBread</Name>
+      <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
       <Ycoord>200</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singBread</Name>
+      <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
       <Ycoord>260</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singBread</Name>
+      <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
       <Ycoord>300</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singBread</Name>
+      <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
       <Ycoord>350</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singMilk</Name>
+      <Name>SingMilk</Name>
       <Xcoord>30</Xcoord>
       <Ycoord>280</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singMilk</Name>
+      <Name>SingMilk</Name>
       <Xcoord>30</Xcoord>
       <Ycoord>320</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singKetch</Name>
+      <Name>SingKetch</Name>
       <Xcoord>1300</Xcoord>
       <Ycoord>370</Ycoord>
     </WorldProduct>
     <WorldProduct>
-      <Name>singKetch</Name>
+      <Name>SingKetch</Name>
       <Xcoord>1300</Xcoord>
       <Ycoord>600</Ycoord>
     </WorldProduct>
@@ -490,7 +490,7 @@
     <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
-      <Ycoord>460</Ycoord>
+      <Ycoord>900</Ycoord>
     </WorldProduct>
   </WorldProducts>
   <ShoppingListProducts>
