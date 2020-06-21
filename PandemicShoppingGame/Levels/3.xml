@@ -440,22 +440,22 @@
     <WorldProduct>
       <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
-      <Ycoord>200</Ycoord>
+      <Ycoord>800</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingBread</Name>
       <Xcoord>1870</Xcoord>
-      <Ycoord>260</Ycoord>
+      <Ycoord>475</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingBread</Name>
-      <Xcoord>1870</Xcoord>
+      <Xcoord>1550</Xcoord>
       <Ycoord>300</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingBread</Name>
-      <Xcoord>1870</Xcoord>
-      <Ycoord>350</Ycoord>
+      <Xcoord>1540</Xcoord>
+      <Ycoord>850</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingMilk</Name>
@@ -465,11 +465,11 @@
     <WorldProduct>
       <Name>SingMilk</Name>
       <Xcoord>30</Xcoord>
-      <Ycoord>320</Ycoord>
+      <Ycoord>700</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingKetch</Name>
-      <Xcoord>1300</Xcoord>
+      <Xcoord>1380</Xcoord>
       <Ycoord>370</Ycoord>
     </WorldProduct>
     <WorldProduct>
@@ -480,17 +480,17 @@
     <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
-      <Ycoord>380</Ycoord>
+      <Ycoord>200</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
-      <Ycoord>430</Ycoord>
+      <Ycoord>520</Ycoord>
     </WorldProduct>
     <WorldProduct>
       <Name>SingOlive</Name>
       <Xcoord>800</Xcoord>
-      <Ycoord>900</Ycoord>
+      <Ycoord>750</Ycoord>
     </WorldProduct>
   </WorldProducts>
   <ShoppingListProducts>
@@ -498,10 +498,37 @@
       <Name>SingOlive</Name>
     </ShoppingListProduct>
     <ShoppingListProduct>
+      <Name>SingOlive</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingOlive</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
       <Name>Singketch</Name>
     </ShoppingListProduct>
     <ShoppingListProduct>
       <Name>Singketch</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingMilk</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingMilk</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingBread</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingBread</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingBread</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingBread</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingBread</Name>
     </ShoppingListProduct>
   </ShoppingListProducts>
   <Enemies>
