@@ -24,34 +24,34 @@ namespace PandemicShoppingGame.Level
 
         public bool IsTouchingLeft(Player player)
         {
-            return this.texture.Width + position.X > player.position.X + (player.texture.Width / 2f) &&
-              position .X < player.position.X + (player.texture.Width / 2f) &&
-              this.texture.Height + position.Y > player.position.Y - (player.texture.Height / 2f) &&
-              position.Y < player.position.Y + (player.texture.Height / 2f);
+            return this.texture.Width + position.X > player.position.X + (player.texture.Width / 2) &&
+              position .X < player.position.X + (player.texture.Width / 2) &&
+              this.texture.Height + position.Y > player.position.Y - (player.texture.Height / 2) &&
+              position.Y < player.position.Y + (player.texture.Height / 2);
         }
 
         public bool IsTouchingRight(Player player)
         {
-            return this.texture.Width + position.X > player.position.X - (player.texture.Width / 2f) &&
-              position.X < player.position.X - (player.texture.Width / 2f) &&
-              this.texture.Height + position.Y > player.position.Y - (player.texture.Height / 2f) &&
-              position.Y < player.position.Y + (player.texture.Height / 2f);
+            return this.texture.Width + position.X > player.position.X - (player.texture.Width / 2) &&
+              position.X < player.position.X - (player.texture.Width / 2) &&
+              this.texture.Height + position.Y > player.position.Y - (player.texture.Height / 2) &&
+              position.Y < player.position.Y + (player.texture.Height / 2);
         }
 
         public bool IsTouchingTop(Player player)
         {
-            return position.Y < player.position.Y + (player.texture.Height / 2f) &&
-              position.Y + texture.Height > player.position.Y + (player.texture.Height / 2f) &&
-              this.texture.Width + position.X > player.position.X - (player.texture.Width / 2f) &&
-              position.X < player.position.X + (player.texture.Width / 2f);
+            return position.Y < player.position.Y + (player.texture.Height / 2) &&
+              position.Y + texture.Height > player.position.Y + (player.texture.Height / 2) &&
+              this.texture.Width + position.X > player.position.X - (player.texture.Width / 2) &&
+              position.X < player.position.X + (player.texture.Width / 2);
         }
 
         public bool IsTouchingBottom(Player player)
         {
-            return position.Y < player.position.Y + (player.texture.Height / 2f) &&
-              texture.Height + position.Y > player.position.Y - (player.texture.Height / 2f) &&
-              position.X + texture.Width > player.position.X - (player.texture.Width / 2f) &&
-              position.X < player.position.X + (player.texture.Width / 2f);
+            return position.Y < player.position.Y + (player.texture.Height / 2) &&
+              texture.Height + position.Y > player.position.Y - (player.texture.Height / 2) &&
+              position.X + texture.Width > player.position.X - (player.texture.Width / 2) &&
+              position.X < player.position.X + (player.texture.Width / 2);
         }
     }
 }
