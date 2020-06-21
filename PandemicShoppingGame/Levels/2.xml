@@ -456,6 +456,12 @@
     <ShoppingListProduct>
       <Name>SingOlive</Name>
     </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>Singketch</Name>
+    </ShoppingListProduct>
+    <ShoppingListProduct>
+      <Name>SingBread</Name>
+    </ShoppingListProduct>
   </ShoppingListProducts>
   <Enemies>
     <Enemy>
