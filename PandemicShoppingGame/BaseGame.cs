@@ -31,6 +31,7 @@ namespace PandemicShoppingGame
 
         public BaseGame()
         {
+            graphics = new GraphicsDeviceManager(this);
             int  _screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             if(_screenWidth > 1920 )
             {
@@ -39,7 +40,6 @@ namespace PandemicShoppingGame
             }
             else
             {
-                graphics = new GraphicsDeviceManager(this);
                 graphics.IsFullScreen = true;
                 graphics.HardwareModeSwitch = false;
             }
