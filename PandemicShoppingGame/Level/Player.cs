@@ -35,6 +35,11 @@ namespace PandemicShoppingGame.Level
             cough = _content.Load<SoundEffect>("Effects/cough");
         }
 
+        public void PickUpProduct(Product p)
+        {
+            inventory.Add(p);
+        }
+
         public override void Move()
         {
             if (Keyboard.GetState().IsKeyDown(Keys.A))

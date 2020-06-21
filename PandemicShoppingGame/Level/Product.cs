@@ -29,7 +29,7 @@ namespace PandemicShoppingGame.Level
         {
             float playerx = player.position.X;
             float playery = player.position.Y;
-            if (Math.Abs(playerx - position.X) < 100 && Math.Abs(playery - position.Y) < 100)
+            if (Math.Abs(playerx - position.X) < 75 && Math.Abs(playery - position.Y) < 75)
             {
                 return true;
             }
@@ -39,7 +39,7 @@ namespace PandemicShoppingGame.Level
             }
         }
 
-        public String GetName()
+        public string GetName()
         {
             return name;
         }

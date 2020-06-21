@@ -213,7 +213,7 @@ namespace PandemicShoppingGame.GameStates
                     }
                     else if (p.isClose(levelManager.player) && !levelManager.player.inventory.Contains(p))
                     {
-                        levelManager.player.inventory.Add(p);
+                        levelManager.player.PickUpProduct(p);
                         levelManager.player.slurp.Play();
                     }
                 }
