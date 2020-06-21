@@ -87,7 +87,6 @@ namespace PandemicShoppingGame.GameStates
             UpdatePlayerHealth();
             CheckPlayerDied();
             DetectLevelFinished();
-            
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -104,11 +103,6 @@ namespace PandemicShoppingGame.GameStates
 
             //Draw level contents
             spriteBatch.Begin();
-
-            //Draw game info
-            spriteBatch.DrawString(font, "Health: " + levelManager.player.health + " + " + levelManager.player.armor, new Vector2(20, 20), Color.Black);
-            spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
-            spriteBatch.DrawString(font, "Level " + level, new Vector2(screenWidth / 2, 20), Color.Black);
 
             //Draw cashier
             spriteBatch.Draw(levelManager.cashier.texture, levelManager.cashier.position, Color.White);
@@ -142,7 +136,7 @@ namespace PandemicShoppingGame.GameStates
             spriteBatch.Draw(bagTexture, new Rectangle(20, 120, 40, 40), Color.White);
 
             //Draw inventoryproducts
-            int xPositionInventory = 80;
+            int xPositionInventory = 70;
             for (int i = 0; i < levelManager.player.inventory.Count; i++)
             {
                 levelManager.player.inventory[i].position.X = xPositionInventory;
@@ -158,6 +152,11 @@ namespace PandemicShoppingGame.GameStates
                 spriteBatch.Draw(levelManager.enemies[i].texture, levelManager.enemies[i].position, Color.White);
             }
             spriteBatch.Draw(levelManager.player.texture, levelManager.player.position, null, Color.White, levelManager.player.angle, levelManager.player.origin, 1, SpriteEffects.None, 0f);
+
+            //Draw game info
+            spriteBatch.DrawString(font, "Health: " + levelManager.player.health + " + " + levelManager.player.armor, new Vector2(20, 20), Color.Black);
+            spriteBatch.DrawString(font, "Time: " + time, new Vector2(300, 20), Color.Black);
+            spriteBatch.DrawString(font, "Level " + level, new Vector2((screenWidth / 2) + 40, 20), Color.Black);
 
             spriteBatch.End();
         }
@@ -254,7 +253,7 @@ namespace PandemicShoppingGame.GameStates
             //Check if player is close to enemy
             foreach (Enemy e in levelManager.enemies)
             {
-                if (e.isClose(levelManager.player,100))
+                if (e.isClose(levelManager.player, 100))
                 {
                     if (healthHelper == 4 && levelManager.player.armor > 0)
                     {
